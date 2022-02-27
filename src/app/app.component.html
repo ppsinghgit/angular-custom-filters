@@ -1,4 +1,21 @@
 <div class="container">
+  <div class="row border" style="height: 150px">
+    <div class="col-12">
+      <strong>Selected Items</strong>
+      <div class="row">
+        <div class="col-12">
+          <h5>
+            <span
+              class="badge badge-secondary mr-1 ml-1"
+              *ngFor="let item of selectedFilters"
+              >{{ item }}</span
+            >
+          </h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="row">
     <div class="col-12">
       <div class="m-2 row">

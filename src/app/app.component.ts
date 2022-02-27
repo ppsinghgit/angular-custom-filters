@@ -16,8 +16,11 @@ export class AppComponent {
   public selectedSection: string = 'none';
   public showData: boolean = false;
 
+  public selectedFilters: string[];
+
   constructor() {
     this.initiate();
+    this.selectedFilters = [];
   }
 
   initiate() {
@@ -83,6 +86,14 @@ export class AppComponent {
     for (let i = 0; i < this.afterSearch.length; i++) {
       if (this.afterSearch[i].value == value) {
         this.afterSearch[i].flag = selected;
+        if (this.afterSearch[i].flag) {
+          this.selectedFilters.push(this.afterSearch[i].text);
+        } else {
+          let index = this.selectedFilters.indexOf(this.afterSearch[i].text, 0);
+          if (index > -1) {
+            this.selectedFilters.splice(index, 1);
+          }
+        }
       }
     }
   }
