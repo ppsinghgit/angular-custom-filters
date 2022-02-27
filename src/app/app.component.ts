@@ -14,6 +14,7 @@ export class AppComponent {
   public afterSearch: Dropdowndata[];
   public itemSearched: string;
   public selectedSection: string = 'none';
+  public showData: boolean = false;
 
   constructor() {
     this.initiate();
@@ -73,11 +74,9 @@ export class AppComponent {
 
   onSearchChange(searchValue: string): void {
     this.itemSearched = searchValue;
-    if (searchValue) {
-      this.afterSearch = this.primaryDdlData.filter((x) =>
-        x.value.toLowerCase().includes(searchValue.toLowerCase())
-      );
-    }
+    this.afterSearch = this.primaryDdlData.filter((x) =>
+      x.value.toLowerCase().includes(searchValue.toLowerCase())
+    );
   }
 
   public checkBoxEvent(selected: boolean, value: string) {
@@ -85,6 +84,14 @@ export class AppComponent {
       if (this.afterSearch[i].value == value) {
         this.afterSearch[i].flag = selected;
       }
+    }
+  }
+
+  public showDataClick() {
+    if (this.showData) {
+      this.showData = false;
+    } else {
+      this.showData = true;
     }
   }
 }
