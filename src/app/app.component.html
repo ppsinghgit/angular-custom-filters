@@ -63,7 +63,7 @@
                 (input)="onSearchChange($event.target.value)"
               />
             </div>
-            <div class="border border-success m-2 col-12">
+            <div class="m-2 col-12">
               <div class="row">
                 <div
                   class="col-12 border border-success border-bottom-1"
@@ -84,8 +84,14 @@
     </div>
   </div>
 
-  <div class="row">
-    <button class="btn btn-link" (click)="showDataClick()">Check Data</button>
+  <div class="row mt-2">
+    <div class="col-12">
+      <button class="btn btn-danger" (click)="clearAll()">Clear</button>
+    </div>
+
+    <div class="col-12 mt-4">
+      <button class="btn btn-link" (click)="showDataClick()">Check Data</button>
+    </div>
   </div>
 
   <div class="row" *ngIf="showData">

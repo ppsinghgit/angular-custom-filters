@@ -108,6 +108,15 @@ export class AppComponent {
       this.showData = true;
     }
   }
+
+  public clearAll() {
+    this.primaryDdlData = [];
+    this.afterSearch = [];
+    this.itemSearched = '';
+    this.selectedSection = 'none';
+    this.selectedFilters = [];
+    this.initiate();
+  }
 }
 
 enum sections {
