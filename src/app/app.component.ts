@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Dropdowndata, sections } from './model';
+import { Dropdowndata } from './model';
 
 @Component({
   selector: 'my-app',
@@ -55,20 +55,23 @@ export class AppComponent {
 
   public OnRegionClick() {
     this.selectedSection = sections.Region;
-    this.primaryDdlData = this.regions;
-    this.afterSearch = this.primaryDdlData;
+    this.setPrimaryData(this.regions);
   }
 
   public OnAreaClick() {
     this.selectedSection = sections.Area;
-    this.primaryDdlData = this.areas;
-    this.afterSearch = this.primaryDdlData;
+    this.setPrimaryData(this.areas);
   }
 
   public OnTerritoryClick() {
     this.selectedSection = sections.Territory;
-    this.primaryDdlData = this.territories;
+    this.setPrimaryData(this.territories);
+  }
+
+  private setPrimaryData(data: Dropdowndata[]) {
+    this.primaryDdlData = data;
     this.afterSearch = this.primaryDdlData;
+    this.itemSearched = '';
   }
 
   public validate() {
