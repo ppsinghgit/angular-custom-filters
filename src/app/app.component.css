@@ -1,6 +1,11 @@
 p {
   font-family: Lato;
 }
+
+.main-border {
+  border-radius: 14px;
+  border: 2px solid #73a1b4;
+}
 .sectionHeading {
   background-color: #dae6ec;
 }
@@ -18,4 +23,8 @@ div {
 
 .custom-text-color {
   color: #7d8182;
+}
+
+.clear-all-button {
+  color: #6498b2;
 }
