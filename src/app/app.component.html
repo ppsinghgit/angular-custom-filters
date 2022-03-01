@@ -1,242 +1,291 @@
 <div class="container">
-  <div class="row border" style="height: 150px">
-    <div class="col-12">
-      <strong>Selected Items</strong>
-      <div class="row">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 border">
+      <div class="row border" style="height: 150px">
         <div class="col-12">
-          <h5>
-            <span
-              class="badge badge-secondary mr-1 ml-1"
-              *ngFor="let item of selectedFilters"
-              >{{ item }}</span
-            >
-          </h5>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row border mt-2">
-    <div class="col-12">
-      <div class="m-2 row">
-        <!-- left panel -->
-        <div class="col-4">
+          <strong>Selected Items</strong>
           <div class="row">
-            <!-- heading -->
-            <div
-              class="col-md-12 p-1 mb-1 text-left sectionHeading text-uppercase"
-            >
-              GEOGRAPHICAL HIERARCHY
-            </div>
-            <!-- region -->
-            <div class="col-md-12 mb-1 sectionItem">
-              <div class="row">
-                <div class="col-2 text-right p-2"></div>
-                <div class="col-10 p-2">
-                  <div class="row">
-                    <div
-                      class="col-md-12 text-left"
-                      (click)="OnRegionClick()"
-                      [ngClass]="
-                        selectedSection === 'region'
-                          ? 'font-weight-bold'
-                          : 'font-weight-normal'
-                      "
-                    >
-                      Region
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- area -->
-            <div class="col-md-12 mb-1 sectionItem">
-              <div class="row">
-                <div class="col-2"></div>
-                <div class="col-10">
-                  <div class="row">
-                    <div
-                      class="col-md-12 p-2 text-left"
-                      (click)="OnAreaClick()"
-                      [ngClass]="
-                        selectedSection === 'area'
-                          ? 'font-weight-bold'
-                          : 'font-weight-normal'
-                      "
-                    >
-                      Area
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- territory -->
-            <div class="col-md-12 mb-1 sectionItem">
-              <div class="row">
-                <div class="col-2"></div>
-                <div class="col-10">
-                  <div class="row">
-                    <div
-                      class="col-md-12 p-2 text-left"
-                      (click)="OnTerritoryClick()"
-                      [ngClass]="
-                        selectedSection === 'territory'
-                          ? 'font-weight-bold'
-                          : 'font-weight-normal'
-                      "
-                    >
-                      Territory
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- heading -->
-            <div
-              class="col-md-12 p-1 mb-1 text-left sectionHeading text-uppercase"
-            >
-              Other HIERARCHY
+            <div class="col-12">
+              <h5>
+                <span
+                  class="badge badge-secondary mr-1 ml-1"
+                  *ngFor="let item of selectedFilters"
+                  >{{ item }}</span
+                >
+              </h5>
             </div>
           </div>
         </div>
-        <div class="col-md-8">
-          <div class="row">
-            <div class="col-md-12">
-              <input
-                type="text"
-                class="mb-2 form-control"
-                [value]="itemSearched"
-                placeholder="Search"
-                (input)="onSearchChange($event.target.value)"
-              />
-            </div>
-            <div class="m-2 col-md-12">
+      </div>
+
+      <div class="row mt-2">
+        <div class="col-12">
+          <div class="m-2 row">
+            <!-- left panel -->
+            <div class="col-4">
               <div class="row">
                 <div
-                  class="col-md-12 border border-success border-bottom-1"
-                  *ngFor="let item of afterSearch"
+                  class="col-md-12 p-2 mb-1 text-left sectionItem"
+                  [ngClass]="
+                    selectedSection === 'storeType'
+                      ? 'font-weight-bold selectedSection'
+                      : 'font-weight-normal'
+                  "
                 >
+                  Store Type
+                </div>
+                <!-- heading -->
+                <div
+                  class="
+                    col-md-12
+                    p-1
+                    mb-1
+                    text-left
+                    sectionHeading
+                    text-uppercase
+                  "
+                >
+                  GEOGRAPHICAL HIERARCHY
+                </div>
+                <!-- region -->
+                <div
+                  class="col-md-12 p-2 mb-1 text-left sectionItem"
+                  (click)="OnRegionClick()"
+                  [ngClass]="
+                    selectedSection === 'region'
+                      ? 'font-weight-bold selectedSection'
+                      : 'font-weight-normal'
+                  "
+                >
+                  Region
+                </div>
+                <!-- area -->
+                <div
+                  class="col-md-12 p-2 mb-1 text-left sectionItem"
+                  (click)="OnAreaClick()"
+                  [ngClass]="
+                    selectedSection === 'area'
+                      ? 'font-weight-bold selectedSection'
+                      : 'font-weight-normal'
+                  "
+                >
+                  Area
+                </div>
+                <!-- territory -->
+                <div
+                  class="col-md-12 p-2 mb-1 text-left sectionItem"
+                  (click)="OnTerritoryClick()"
+                  [ngClass]="
+                    selectedSection === 'territory'
+                      ? 'font-weight-bold selectedSection'
+                      : 'font-weight-normal'
+                  "
+                >
+                  Territory
+                </div>
+
+                <!-- heading -->
+                <div
+                  class="
+                    col-md-12
+                    p-1
+                    mb-1
+                    text-left
+                    sectionHeading
+                    text-uppercase
+                  "
+                >
+                  Other HIERARCHY
+                </div>
+
+                <div
+                  class="col-md-12 p-2 mb-1 text-left sectionItem"
+                  [ngClass]="
+                    selectedSection === 'enrolledBy'
+                      ? 'font-weight-bold selectedSection'
+                      : 'font-weight-normal'
+                  "
+                >
+                  Enrolled By
+                </div>
+                <div
+                  class="col-md-12 p-2 mb-1 text-left sectionItem"
+                  [ngClass]="
+                    selectedSection === 'distributor'
+                      ? 'font-weight-bold selectedSection'
+                      : 'font-weight-normal'
+                  "
+                >
+                  Distributor
+                </div>
+
+                <div
+                  class="col-md-12 p-2 mb-1 text-left sectionItem"
+                  [ngClass]="
+                    selectedSection === 'chain'
+                      ? 'font-weight-bold selectedSection'
+                      : 'font-weight-normal'
+                  "
+                >
+                  Chain
+                </div>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="row">
+                <div class="col-md-12">
                   <input
-                    type="checkbox"
-                    [checked]="item.flag"
-                    (change)="checkBoxEvent($event.target.checked, item.value)"
+                    type="text"
+                    class="mb-2 form-control"
+                    [value]="itemSearched"
+                    placeholder="Search"
+                    (input)="onSearchChange($event.target.value)"
                   />
-                  {{ item.text }}
+                </div>
+                <div class="m-2 col-md-12">
+                  <div class="row">
+                    <div
+                      class="col-md-12 mb-2"
+                      *ngFor="let item of afterSearch"
+                    >
+                      <input
+                        type="checkbox"
+                        [checked]="item.flag"
+                        (change)="
+                          checkBoxEvent($event.target.checked, item.value)
+                        "
+                      />
+                      {{ item.text }}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
 
-  <div class="row mt-2">
-    <div class="col-md-12">
-      <button class="btn btn-danger" (click)="clearAll()">Clear</button>
-    </div>
-
-    <div class="col-md-12 mt-4">
-      <button class="btn btn-link" (click)="showDataClick()">Check Data</button>
-    </div>
-  </div>
-
-  <div class="row" *ngIf="showData">
-    <div class="col-md-12">
-      <div class="row">
-        <div class="col-md-5 mr-4">
-          Primary Dropdown Data
-          <table border="1">
-            <tr>
-              <th>Value</th>
-              <th>Text</th>
-              <th>Flag</th>
-            </tr>
-            <tr *ngFor="let item of primaryDdlData">
-              <td>{{ item.value }}</td>
-              <td>{{ item.text }}</td>
-              <td [ngStyle]="{ color: item.flag === true ? 'green' : 'red' }">
-                {{ item.flag }}
-              </td>
-            </tr>
-          </table>
+      <div class="row mt-2">
+        <div class="col-md-12">
+          <button class="btn btn-danger" (click)="clearAll()">Clear</button>
         </div>
 
-        <div class="col-md-5 mr-4">
-          After Search Data
-          <table border="1">
-            <tr>
-              <th>Value</th>
-              <th>Text</th>
-              <th>Flag</th>
-            </tr>
-            <tr *ngFor="let item of afterSearch">
-              <td>{{ item.value }}</td>
-              <td>{{ item.text }}</td>
-              <td [ngStyle]="{ color: item.flag === true ? 'green' : 'red' }">
-                {{ item.flag }}
-              </td>
-            </tr>
-          </table>
+        <div class="col-md-12 mt-4">
+          <button class="btn btn-link" (click)="showDataClick()">
+            Check Data
+          </button>
         </div>
       </div>
 
-      <div class="row mt-3">
-        <div class="col-3 mr-4">
-          Region
-          <table border="1">
-            <tr>
-              <th>Value</th>
-              <th>Text</th>
-              <th>Flag</th>
-            </tr>
-            <tr *ngFor="let item of regions">
-              <td>{{ item.value }}</td>
-              <td>{{ item.text }}</td>
-              <td [ngStyle]="{ color: item.flag === true ? 'green' : 'red' }">
-                {{ item.flag }}
-              </td>
-            </tr>
-          </table>
-        </div>
+      <div class="row" *ngIf="showData">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-5 mr-4">
+              Primary Dropdown Data
+              <table border="1">
+                <tr>
+                  <th>Value</th>
+                  <th>Text</th>
+                  <th>Flag</th>
+                </tr>
+                <tr *ngFor="let item of primaryDdlData">
+                  <td>{{ item.value }}</td>
+                  <td>{{ item.text }}</td>
+                  <td
+                    [ngStyle]="{ color: item.flag === true ? 'green' : 'red' }"
+                  >
+                    {{ item.flag }}
+                  </td>
+                </tr>
+              </table>
+            </div>
 
-        <div class="col-3 mr-2">
-          Area
-          <table border="1">
-            <tr>
-              <th>Value</th>
-              <th>Text</th>
-              <th>Flag</th>
-            </tr>
-            <tr *ngFor="let item of areas">
-              <td>{{ item.value }}</td>
-              <td>{{ item.text }}</td>
-              <td [ngStyle]="{ color: item.flag === true ? 'green' : 'red' }">
-                {{ item.flag }}
-              </td>
-            </tr>
-          </table>
-        </div>
+            <div class="col-md-5 mr-4">
+              After Search Data
+              <table border="1">
+                <tr>
+                  <th>Value</th>
+                  <th>Text</th>
+                  <th>Flag</th>
+                </tr>
+                <tr *ngFor="let item of afterSearch">
+                  <td>{{ item.value }}</td>
+                  <td>{{ item.text }}</td>
+                  <td
+                    [ngStyle]="{ color: item.flag === true ? 'green' : 'red' }"
+                  >
+                    {{ item.flag }}
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
 
-        <div class="col-4 mr-2">
-          Territory
-          <table border="1">
-            <tr>
-              <th>Value</th>
-              <th>Text</th>
-              <th>Flag</th>
-            </tr>
-            <tr *ngFor="let item of territories">
-              <td>{{ item.value }}</td>
-              <td>{{ item.text }}</td>
-              <td [ngStyle]="{ color: item.flag === true ? 'green' : 'red' }">
-                {{ item.flag }}
-              </td>
-            </tr>
-          </table>
+          <div class="row mt-3">
+            <div class="col-3 mr-4">
+              Region
+              <table border="1">
+                <tr>
+                  <th>Value</th>
+                  <th>Text</th>
+                  <th>Flag</th>
+                </tr>
+                <tr *ngFor="let item of regions">
+                  <td>{{ item.value }}</td>
+                  <td>{{ item.text }}</td>
+                  <td
+                    [ngStyle]="{ color: item.flag === true ? 'green' : 'red' }"
+                  >
+                    {{ item.flag }}
+                  </td>
+                </tr>
+              </table>
+            </div>
+
+            <div class="col-3 mr-2">
+              Area
+              <table border="1">
+                <tr>
+                  <th>Value</th>
+                  <th>Text</th>
+                  <th>Flag</th>
+                </tr>
+                <tr *ngFor="let item of areas">
+                  <td>{{ item.value }}</td>
+                  <td>{{ item.text }}</td>
+                  <td
+                    [ngStyle]="{ color: item.flag === true ? 'green' : 'red' }"
+                  >
+                    {{ item.flag }}
+                  </td>
+                </tr>
+              </table>
+            </div>
+
+            <div class="col-4 mr-2">
+              Territory
+              <table border="1">
+                <tr>
+                  <th>Value</th>
+                  <th>Text</th>
+                  <th>Flag</th>
+                </tr>
+                <tr *ngFor="let item of territories">
+                  <td>{{ item.value }}</td>
+                  <td>{{ item.text }}</td>
+                  <td
+                    [ngStyle]="{ color: item.flag === true ? 'green' : 'red' }"
+                  >
+                    {{ item.flag }}
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+    <div class="col-md-2"></div>
   </div>
 </div>

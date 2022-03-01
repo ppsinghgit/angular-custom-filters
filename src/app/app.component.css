@@ -8,3 +8,6 @@ p {
   background-color: #edf4f7;
   color: #7d8182;
 }
+.selectedSection {
+  background-color: white;
+}
