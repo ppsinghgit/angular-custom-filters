@@ -3,7 +3,7 @@ p {
 }
 
 .main-border {
-  border-radius: 14px;
+  border-radius: 11px;
   border: 2px solid #73a1b4;
 }
 .sectionHeading {
@@ -27,4 +27,27 @@ div {
 
 .clear-all-button {
   color: #6498b2;
+}
+
+/* scroll bar classes */
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
