@@ -22,7 +22,19 @@
         <div class="col-4">
           <div class="row">
             <div
-              class="col-md-12 p-2 mb-2 text-center sectionItem"
+              class="
+                col-md-12
+                p-1
+                mb-1
+                text-center
+                sectionHeading
+                text-uppercase
+              "
+            >
+              GEOGRAPHICAL HIERARCHY
+            </div>
+            <div
+              class="col-md-12 p-2 mb-1 text-center sectionItem"
               (click)="OnRegionClick()"
               [ngClass]="
                 selectedSection === 'region'
@@ -33,7 +45,7 @@
               Region
             </div>
             <div
-              class="col-md-12 p-2 mb-2 text-center sectionItem"
+              class="col-md-12 p-2 mb-1 text-center sectionItem"
               (click)="OnAreaClick()"
               [ngClass]="
                 selectedSection === 'area'
@@ -44,7 +56,7 @@
               Area
             </div>
             <div
-              class="col-md-12 p-2 mb-2 text-center sectionItem"
+              class="col-md-12 p-2 mb-1 text-center sectionItem"
               (click)="OnTerritoryClick()"
               [ngClass]="
                 selectedSection === 'territory'
