@@ -169,8 +169,8 @@
                         (click)="checkBoxEvent(item.flag, item.value)"
                         [ngClass]="
                           item.flag
-                            ? 'font-weight-bold p-1'
-                            : 'font-weight-normal p-1'
+                            ? 'font-weight-bold selectedSection p-1 pl-2'
+                            : 'font-weight-normal p-1 pl-2'
                         "
                       >
                         <input type="checkbox" [checked]="item.flag" />
@@ -307,6 +307,11 @@
 
       <div class="row border-top pt-3 pb-3 pr-1">
         <div class="col-md-12 text-right">
+          <div class="col-md-12 mt-4">
+            <button class="btn btn-link" (click)="showDataClick()">
+              Check Data
+            </button>
+          </div>
           <button type="button" class="btn btn-link mr-2 custom-text-color">
             Cancel
           </button>
