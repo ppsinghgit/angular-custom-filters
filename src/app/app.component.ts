@@ -86,6 +86,7 @@ export class AppComponent {
   }
 
   public checkBoxEvent(selected: boolean, value: string) {
+    selected = selected ? false : true;
     for (let i = 0; i < this.afterSearch.length; i++) {
       if (this.afterSearch[i].value == value) {
         this.afterSearch[i].flag = selected;
@@ -116,6 +117,20 @@ export class AppComponent {
     this.selectedSection = 'none';
     this.selectedFilters = [];
     this.initiate();
+  }
+
+  public onApply() {
+    for (let i = 0; i < this.afterSearch.length; i++) {
+      this.afterSearch[i].flag = true;
+      this.selectedFilters.push(this.afterSearch[i].text);
+    }
+  }
+
+  public test(a: any, b: any) {
+    for (let i = 0; i < this.afterSearch.length; i++) {
+      this.afterSearch[i].flag = true;
+      this.selectedFilters.push(this.afterSearch[i].text);
+    }
   }
 }
 

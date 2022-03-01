@@ -162,17 +162,20 @@
                 <div class="m-2 col-md-12">
                   <div class="row">
                     <div
-                      class="col-md-12 mb-2"
+                      class="col-md-12 mb-1 section-array-div"
                       *ngFor="let item of afterSearch"
                     >
-                      <input
-                        type="checkbox"
-                        [checked]="item.flag"
-                        (change)="
-                          checkBoxEvent($event.target.checked, item.value)
+                      <div
+                        (click)="checkBoxEvent(item.flag, item.value)"
+                        [ngClass]="
+                          item.flag
+                            ? 'font-weight-bold p-1'
+                            : 'font-weight-normal p-1'
                         "
-                      />
-                      {{ item.text }}
+                      >
+                        <input type="checkbox" [checked]="item.flag" />
+                        {{ item.text }}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -311,6 +314,7 @@
             type="button"
             class="btn btn-primary ml-2 text-uppercase"
             style="background-color: #06597a;"
+            (click)="onApply()"
           >
             Apply
           </button>

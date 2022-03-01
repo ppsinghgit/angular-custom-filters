@@ -28,7 +28,13 @@ div {
 .clear-all-button {
   color: #6498b2;
 }
-
+.section-array-div {
+  width: 100%;
+  cursor: pointer;
+}
+.section-array-div :hover {
+  background-color: #f8f8f8;
+}
 /* scroll bar classes */
 /* width */
 ::-webkit-scrollbar {
