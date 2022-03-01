@@ -11,3 +11,7 @@ p {
 .selectedSection {
   background-color: white;
 }
+
+div {
+  color: #7d8182;
+}
