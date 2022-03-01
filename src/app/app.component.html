@@ -22,7 +22,14 @@
         <div class="col-4">
           <div class="row">
             <div
-              class="col-12 p-2 mb-2 border border-primary text-center"
+              class="
+                col-md-12
+                p-2
+                mb-2
+                border border-primary
+                text-center
+                sectionItem
+              "
               (click)="OnRegionClick()"
               [ngStyle]="{
                 'background-color':
@@ -32,7 +39,14 @@
               Region
             </div>
             <div
-              class="col-12 p-2 mb-2 border border-primary text-center"
+              class="
+                col-md-12
+                p-2
+                mb-2
+                border border-primary
+                text-center
+                sectionItem
+              "
               (click)="OnAreaClick()"
               [ngStyle]="{
                 'background-color': selectedSection === 'area' ? 'red' : 'white'
@@ -41,7 +55,14 @@
               Area
             </div>
             <div
-              class="col-12 p-2 mb-2 border border-primary text-center"
+              class="
+                col-md-12
+                p-2
+                mb-2
+                border border-primary
+                text-center
+                sectionItem
+              "
               (click)="OnTerritoryClick()"
               [ngStyle]="{
                 'background-color':
@@ -52,9 +73,9 @@
             </div>
           </div>
         </div>
-        <div class="col-8">
+        <div class="col-md-8">
           <div class="row">
-            <div class="col-12">
+            <div class="col-md-12">
               <input
                 type="text"
                 class="mb-2 form-control"
@@ -63,10 +84,10 @@
                 (input)="onSearchChange($event.target.value)"
               />
             </div>
-            <div class="m-2 col-12">
+            <div class="m-2 col-md-12">
               <div class="row">
                 <div
-                  class="col-12 border border-success border-bottom-1"
+                  class="col-md-12 border border-success border-bottom-1"
                   *ngFor="let item of afterSearch"
                 >
                   <input
@@ -85,19 +106,19 @@
   </div>
 
   <div class="row mt-2">
-    <div class="col-12">
+    <div class="col-md-12">
       <button class="btn btn-danger" (click)="clearAll()">Clear</button>
     </div>
 
-    <div class="col-12 mt-4">
+    <div class="col-md-12 mt-4">
       <button class="btn btn-link" (click)="showDataClick()">Check Data</button>
     </div>
   </div>
 
   <div class="row" *ngIf="showData">
-    <div class="col-12">
+    <div class="col-md-12">
       <div class="row">
-        <div class="col-5 mr-4">
+        <div class="col-md-5 mr-4">
           Primary Dropdown Data
           <table border="1">
             <tr>
@@ -115,7 +136,7 @@
           </table>
         </div>
 
-        <div class="col-5 mr-4">
+        <div class="col-md-5 mr-4">
           After Search Data
           <table border="1">
             <tr>
