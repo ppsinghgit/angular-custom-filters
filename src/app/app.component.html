@@ -19,52 +19,55 @@
   <div class="row border mt-2">
     <div class="col-12">
       <div class="m-2 row">
+        <!-- left panel -->
         <div class="col-4">
           <div class="row">
             <div
-              class="
-                col-md-12
-                p-1
-                mb-1
-                text-center
-                sectionHeading
-                text-uppercase
-              "
+              class="col-md-12 p-1 mb-1 text-left sectionHeading text-uppercase"
             >
               GEOGRAPHICAL HIERARCHY
             </div>
-            <div
-              class="col-md-12 p-2 mb-1 text-center sectionItem"
-              (click)="OnRegionClick()"
-              [ngClass]="
-                selectedSection === 'region'
-                  ? 'font-weight-bold'
-                  : 'font-weight-normal'
-              "
-            >
-              Region
+
+            <div class="col-md-12 mb-1 sectionItem">
+              <div
+                class="col-md-12 p-2 text-left"
+                (click)="OnRegionClick()"
+                [ngClass]="
+                  selectedSection === 'region'
+                    ? 'font-weight-bold'
+                    : 'font-weight-normal'
+                "
+              >
+                Region
+              </div>
             </div>
-            <div
-              class="col-md-12 p-2 mb-1 text-center sectionItem"
-              (click)="OnAreaClick()"
-              [ngClass]="
-                selectedSection === 'area'
-                  ? 'font-weight-bold'
-                  : 'font-weight-normal'
-              "
-            >
-              Area
+
+            <div class="col-md-12 mb-1 sectionItem">
+              <div
+                class="col-md-12 p-2 text-left"
+                (click)="OnAreaClick()"
+                [ngClass]="
+                  selectedSection === 'area'
+                    ? 'font-weight-bold'
+                    : 'font-weight-normal'
+                "
+              >
+                Area
+              </div>
             </div>
-            <div
-              class="col-md-12 p-2 mb-1 text-center sectionItem"
-              (click)="OnTerritoryClick()"
-              [ngClass]="
-                selectedSection === 'territory'
-                  ? 'font-weight-bold'
-                  : 'font-weight-normal'
-              "
-            >
-              Territory
+
+            <div class="col-md-12 mb-1 sectionItem">
+              <div
+                class="col-md-12 p-2 text-left"
+                (click)="OnTerritoryClick()"
+                [ngClass]="
+                  selectedSection === 'territory'
+                    ? 'font-weight-bold'
+                    : 'font-weight-normal'
+                "
+              >
+                Territory
+              </div>
             </div>
           </div>
         </div>
