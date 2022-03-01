@@ -22,17 +22,16 @@
         <!-- left panel -->
         <div class="col-4">
           <div class="row">
+            <!-- heading -->
             <div
               class="col-md-12 p-1 mb-1 text-left sectionHeading text-uppercase"
             >
               GEOGRAPHICAL HIERARCHY
             </div>
-
+            <!-- region -->
             <div class="col-md-12 mb-1 sectionItem">
               <div class="row">
-                <div class="col-2 text-right p-2">
-                  <input type="checkbox" class="square-checkbox" />
-                </div>
+                <div class="col-2 text-right p-2"></div>
                 <div class="col-10 p-2">
                   <div class="row">
                     <div
@@ -50,33 +49,54 @@
                 </div>
               </div>
             </div>
-
+            <!-- area -->
             <div class="col-md-12 mb-1 sectionItem">
-              <div
-                class="col-md-12 p-2 text-left"
-                (click)="OnAreaClick()"
-                [ngClass]="
-                  selectedSection === 'area'
-                    ? 'font-weight-bold'
-                    : 'font-weight-normal'
-                "
-              >
-                Area
+              <div class="row">
+                <div class="col-2"></div>
+                <div class="col-10">
+                  <div class="row">
+                    <div
+                      class="col-md-12 p-2 text-left"
+                      (click)="OnAreaClick()"
+                      [ngClass]="
+                        selectedSection === 'area'
+                          ? 'font-weight-bold'
+                          : 'font-weight-normal'
+                      "
+                    >
+                      Area
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- territory -->
+            <div class="col-md-12 mb-1 sectionItem">
+              <div class="row">
+                <div class="col-2"></div>
+                <div class="col-10">
+                  <div class="row">
+                    <div
+                      class="col-md-12 p-2 text-left"
+                      (click)="OnTerritoryClick()"
+                      [ngClass]="
+                        selectedSection === 'territory'
+                          ? 'font-weight-bold'
+                          : 'font-weight-normal'
+                      "
+                    >
+                      Territory
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div class="col-md-12 mb-1 sectionItem">
-              <div
-                class="col-md-12 p-2 text-left"
-                (click)="OnTerritoryClick()"
-                [ngClass]="
-                  selectedSection === 'territory'
-                    ? 'font-weight-bold'
-                    : 'font-weight-normal'
-                "
-              >
-                Territory
-              </div>
+            <!-- heading -->
+            <div
+              class="col-md-12 p-1 mb-1 text-left sectionHeading text-uppercase"
+            >
+              Other HIERARCHY
             </div>
           </div>
         </div>
