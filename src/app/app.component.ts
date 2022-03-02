@@ -25,10 +25,301 @@ export class AppComponent {
 
   initiate() {
     let _region = [
-      { value: 'AK', text: 'AK', flag: false },
-      { value: 'AL', text: 'AL', flag: false },
-      { value: 'NY', text: 'NY', flag: false },
-      { value: 'LA', text: 'LA', flag: false },
+      {
+        value: 'AL',
+        text: 'AL',
+        flag: false,
+      },
+      {
+        value: 'AK',
+        text: 'AK',
+        flag: false,
+      },
+      {
+        text: 'AS',
+        flag: false,
+        value: 'AS',
+      },
+      {
+        text: 'AZ',
+        flag: false,
+        value: 'AZ',
+      },
+      {
+        text: 'AR',
+        flag: false,
+        value: 'AR',
+      },
+      {
+        text: 'CA',
+        flag: false,
+        value: 'CA',
+      },
+      {
+        text: 'CO',
+        flag: false,
+        value: 'CO',
+      },
+      {
+        text: 'CT',
+        flag: false,
+        value: 'CT',
+      },
+      {
+        text: 'DE',
+        flag: false,
+        value: 'DE',
+      },
+      {
+        text: 'DC',
+        flag: false,
+        value: 'DC',
+      },
+      {
+        text: 'FM',
+        flag: false,
+        value: 'FM',
+      },
+      {
+        text: 'FL',
+        flag: false,
+        value: 'FL',
+      },
+      {
+        text: 'GA',
+        flag: false,
+        value: 'GA',
+      },
+      {
+        text: 'GU',
+        flag: false,
+        value: 'GU',
+      },
+      {
+        text: 'HI',
+        flag: false,
+        value: 'HI',
+      },
+      {
+        text: 'ID',
+        flag: false,
+        value: 'ID',
+      },
+      {
+        text: 'IL',
+        flag: false,
+        value: 'IL',
+      },
+      {
+        text: 'IN',
+        flag: false,
+        value: 'IN',
+      },
+      {
+        text: 'IA',
+        flag: false,
+        value: 'IA',
+      },
+      {
+        text: 'KS',
+        flag: false,
+        value: 'KS',
+      },
+      {
+        text: 'KY',
+        flag: false,
+        value: 'KY',
+      },
+      {
+        text: 'LA',
+        flag: false,
+        value: 'LA',
+      },
+      {
+        text: 'ME',
+        flag: false,
+        value: 'ME',
+      },
+      {
+        text: 'MH',
+        flag: false,
+        value: 'MH',
+      },
+      {
+        text: 'MD',
+        flag: false,
+        value: 'MD',
+      },
+      {
+        text: 'MA',
+        flag: false,
+        value: 'MA',
+      },
+      {
+        text: 'MI',
+        flag: false,
+        value: 'MI',
+      },
+      {
+        text: 'MN',
+        flag: false,
+        value: 'MN',
+      },
+      {
+        text: 'MS',
+        flag: false,
+        value: 'MS',
+      },
+      {
+        text: 'MO',
+        flag: false,
+        value: 'MO',
+      },
+      {
+        text: 'MT',
+        flag: false,
+        value: 'MT',
+      },
+      {
+        text: 'NE',
+        flag: false,
+        value: 'NE',
+      },
+      {
+        text: 'NV',
+        flag: false,
+        value: 'NV',
+      },
+      {
+        text: 'NH',
+        flag: false,
+        value: 'NH',
+      },
+      {
+        text: 'NJ',
+        flag: false,
+        value: 'NJ',
+      },
+      {
+        text: 'NM',
+        flag: false,
+        value: 'NM',
+      },
+      {
+        text: 'NY',
+        flag: false,
+        value: 'NY',
+      },
+      {
+        text: 'NC',
+        flag: false,
+        value: 'NC',
+      },
+      {
+        text: 'ND',
+        flag: false,
+        value: 'ND',
+      },
+      {
+        text: 'MP',
+        flag: false,
+        value: 'MP',
+      },
+      {
+        text: 'OH',
+        flag: false,
+        value: 'OH',
+      },
+      {
+        text: 'OK',
+        flag: false,
+        value: 'OK',
+      },
+      {
+        text: 'OR',
+        flag: false,
+        value: 'OR',
+      },
+      {
+        text: 'PW',
+        flag: false,
+        value: 'PW',
+      },
+      {
+        text: 'PA',
+        flag: false,
+        value: 'PA',
+      },
+      {
+        text: 'PR',
+        flag: false,
+        value: 'PR',
+      },
+      {
+        text: 'RI',
+        flag: false,
+        value: 'RI',
+      },
+      {
+        text: 'SC',
+        flag: false,
+        value: 'SC',
+      },
+      {
+        text: 'SD',
+        flag: false,
+        value: 'SD',
+      },
+      {
+        text: 'TN',
+        flag: false,
+        value: 'TN',
+      },
+      {
+        text: 'TX',
+        flag: false,
+        value: 'TX',
+      },
+      {
+        text: 'UT',
+        flag: false,
+        value: 'UT',
+      },
+      {
+        text: 'VT',
+        flag: false,
+        value: 'VT',
+      },
+      {
+        text: 'VI',
+        flag: false,
+        value: 'VI',
+      },
+      {
+        text: 'VA',
+        flag: false,
+        value: 'VA',
+      },
+      {
+        text: 'WA',
+        flag: false,
+        value: 'WA',
+      },
+      {
+        text: 'WV',
+        flag: false,
+        value: 'WV',
+      },
+      {
+        text: 'WI',
+        flag: false,
+        value: 'WI',
+      },
+      {
+        text: 'WY',
+        flag: false,
+        value: 'WY',
+      },
     ];
 
     let _area = [

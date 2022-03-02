@@ -13,7 +13,7 @@
                 type="button"
                 class="btn btn-link mr-2 clear-all-button font-weight-bold"
               >
-                Cancel
+                Clear
               </button>
             </div>
           </div>
@@ -159,22 +159,29 @@
                     style="background-color:#f8f8f8; border:0; border-radius:0"
                   />
                 </div>
-                <div class="m-2 col-md-12">
+                <div class="col-md-12">
                   <div class="row">
-                    <div
-                      class="col-md-12 mb-1 section-array-div"
-                      *ngFor="let item of afterSearch"
-                    >
+                    <div class="col-md-12 border pr-4">
                       <div
-                        (click)="checkBoxEvent(item.flag, item.value)"
-                        [ngClass]="
-                          item.flag
-                            ? 'font-weight-bold selectedSection p-1 pl-2'
-                            : 'font-weight-normal p-1 pl-2'
-                        "
+                        class="row"
+                        style="overflow-y: scroll; height: 350px"
                       >
-                        <input type="checkbox" [checked]="item.flag" />
-                        {{ item.text }}
+                        <div
+                          class="col-md-12 mb-1 section-array-div"
+                          *ngFor="let item of afterSearch"
+                        >
+                          <div
+                            (click)="checkBoxEvent(item.flag, item.value)"
+                            [ngClass]="
+                              item.flag
+                                ? 'font-weight-bold selectedSection p-1 pl-2'
+                                : 'font-weight-normal p-1 pl-2'
+                            "
+                          >
+                            <input type="checkbox" [checked]="item.flag" />
+                            {{ item.text }}
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
