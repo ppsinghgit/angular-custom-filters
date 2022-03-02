@@ -364,13 +364,7 @@ export class AppComponent {
     this.primaryDdlData = data;
     this.afterSearch = this.primaryDdlData;
     this.itemSearched = '';
-    if (this.afterSearch) {
-      if (this.afterSearch.length > 10) {
-        this.primaryDataHeight = 300;
-      } else {
-        this.primaryDataHeight = this.afterSearch.length * 30;
-      }
-    }
+    this.getPrimaryDataHeight();
   }
 
   public validate() {
@@ -382,6 +376,7 @@ export class AppComponent {
     this.afterSearch = this.primaryDdlData.filter((x) =>
       x.value.toLowerCase().includes(searchValue.toLowerCase())
     );
+    this.getPrimaryDataHeight();
   }
 
   public checkBoxEvent(selected: boolean, value: string) {
@@ -434,13 +429,25 @@ export class AppComponent {
 
   getPrimaryDataHeight(): any {
     let scrollBar = '';
+    let height = '';
+
+    if (this.afterSearch) {
+      if (this.afterSearch.length > 10) {
+        this.primaryDataHeight = 300;
+      } else {
+        this.primaryDataHeight = this.afterSearch.length * 35;
+      }
+    }
+
     if (this.primaryDataHeight < 300) {
       scrollBar = 'hidden';
+      height = 'auto';
     } else {
       scrollBar = 'scroll';
+      height = this.primaryDataHeight + 'px';
     }
     return {
-      height: this.primaryDataHeight + 'px',
+      height: height,
       'overflow-y': scrollBar,
     };
   }
