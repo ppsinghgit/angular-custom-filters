@@ -15,6 +15,7 @@ export class AppComponent {
   public itemSearched: string;
   public selectedSection: string = 'none';
   public showData: boolean = false;
+  public primaryDataHeight: number;
 
   public selectedFilters: string[];
 
@@ -363,6 +364,13 @@ export class AppComponent {
     this.primaryDdlData = data;
     this.afterSearch = this.primaryDdlData;
     this.itemSearched = '';
+    if (this.afterSearch) {
+      if (this.afterSearch.length > 10) {
+        this.primaryDataHeight = 300;
+      } else {
+        this.primaryDataHeight = this.afterSearch.length * 30;
+      }
+    }
   }
 
   public validate() {
@@ -422,6 +430,19 @@ export class AppComponent {
       this.afterSearch[i].flag = true;
       this.selectedFilters.push(this.afterSearch[i].text);
     }
+  }
+
+  getPrimaryDataHeight(): any {
+    let scrollBar = '';
+    if (this.primaryDataHeight < 300) {
+      scrollBar = 'hidden';
+    } else {
+      scrollBar = 'scroll';
+    }
+    return {
+      height: this.primaryDataHeight + 'px',
+      'overflow-y': scrollBar,
+    };
   }
 }
 
