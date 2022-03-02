@@ -38,6 +38,12 @@ div {
 .custom-blue-color {
   color: #06597a;
 }
+
+.tag-item {
+  background-color: white;
+  color: #7d8182;
+}
+
 /* scroll bar classes */
 /* width */
 ::-webkit-scrollbar {

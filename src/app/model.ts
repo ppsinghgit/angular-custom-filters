@@ -15,3 +15,7 @@ export class ShowSelectedFiltersCountBySection {
   distributor: number = 0;
   totalCount: number = 0;
 }
+export class SelectedFilterItem {
+  value: string;
+  type: string;
+}

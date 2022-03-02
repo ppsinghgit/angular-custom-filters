@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
-import { Dropdowndata, ShowSelectedFiltersCountBySection } from './model';
+import {
+  Dropdowndata,
+  ShowSelectedFiltersCountBySection,
+  SelectedFilterItem,
+} from './model';
 
 @Component({
   selector: 'my-app',
@@ -17,7 +21,7 @@ export class AppComponent {
   public showData: boolean = false;
   public primaryDataHeight: number;
 
-  public selectedFilters: string[];
+  public selectedFilters: SelectedFilterItem[];
   public filtersCount: ShowSelectedFiltersCountBySection =
     new ShowSelectedFiltersCountBySection();
 
@@ -387,9 +391,17 @@ export class AppComponent {
       if (this.afterSearch[i].value == value) {
         this.afterSearch[i].flag = selected;
         if (this.afterSearch[i].flag) {
-          this.selectedFilters.push(this.afterSearch[i].text);
+          let item = new SelectedFilterItem();
+          item.value = this.afterSearch[i].text;
+          item.type = this.selectedSection;
+
+          this.selectedFilters.push(item);
         } else {
-          let index = this.selectedFilters.indexOf(this.afterSearch[i].text, 0);
+          let index = this.selectedFilters.findIndex(
+            (x) =>
+              x.value == this.afterSearch[i].text &&
+              x.type == this.selectedSection
+          );
           if (index > -1) {
             this.selectedFilters.splice(index, 1);
           }

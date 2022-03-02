@@ -24,13 +24,22 @@
             </div>
           </div>
 
-          <div class="row m-2">
+          <div class="row">
             <div class="col-12 border" style="height:80px; overflow-y: scroll;">
               <h5>
                 <span
-                  class="badge badge-secondary mr-1 ml-1"
+                  class="
+                    badge badge-secondary
+                    mr-2
+                    tag-item
+                    border
+                    rounded
+                    font-weight-normal
+                  "
                   *ngFor="let item of selectedFilters"
-                  >{{ item }}</span
+                >
+                  <span class="custom-blue-color font-weight-light">X</span>
+                  {{ item.value }}</span
                 >
               </h5>
             </div>
@@ -210,16 +219,16 @@
       </div>
 
       <!-- <div class="row mt-2">
-        <div class="col-md-12">
-          <button class="btn btn-danger" (click)="clearAll()">Clear</button>
-        </div>
+      <div class="col-md-12">
+        <button class="btn btn-danger" (click)="clearAll()">Clear</button>
+      </div>
 
-        <div class="col-md-12 mt-4">
-          <button class="btn btn-link" (click)="showDataClick()">
-            Check Data
-          </button>
-        </div>
-      </div> -->
+      <div class="col-md-12 mt-4">
+        <button class="btn btn-link" (click)="showDataClick()">
+          Check Data
+        </button>
+      </div>
+    </div> -->
 
       <div class="row" *ngIf="showData">
         <div class="col-md-12">
