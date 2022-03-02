@@ -73,7 +73,9 @@
                       : 'font-weight-normal'
                   "
                 >
-                  Region
+                  Region<span class="ml-1" *ngIf="filtersCount.region > 0"
+                    >({{ filtersCount.region }})</span
+                  >
                 </div>
                 <!-- area -->
                 <div
@@ -85,7 +87,9 @@
                       : 'font-weight-normal'
                   "
                 >
-                  Area
+                  Area<span class="ml-1" *ngIf="filtersCount.area > 0"
+                    >({{ filtersCount.area }})</span
+                  >
                 </div>
                 <!-- territory -->
                 <div
@@ -97,7 +101,9 @@
                       : 'font-weight-normal'
                   "
                 >
-                  Territory
+                  Territory<span class="ml-1" *ngIf="filtersCount.territory > 0"
+                    >({{ filtersCount.territory }})</span
+                  >
                 </div>
 
                 <!-- heading -->

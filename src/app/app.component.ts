@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Dropdowndata } from './model';
+import { Dropdowndata, ShowSelectedFiltersCountBySection } from './model';
 
 @Component({
   selector: 'my-app',
@@ -18,6 +18,8 @@ export class AppComponent {
   public primaryDataHeight: number;
 
   public selectedFilters: string[];
+  public filtersCount: ShowSelectedFiltersCountBySection =
+    new ShowSelectedFiltersCountBySection();
 
   constructor() {
     this.initiate();
@@ -394,6 +396,7 @@ export class AppComponent {
         }
       }
     }
+    this.setFiltersCount();
   }
 
   public showDataClick() {
@@ -450,6 +453,16 @@ export class AppComponent {
       height: height,
       'overflow-y': scrollBar,
     };
+  }
+
+  setFiltersCount() {
+    this.filtersCount.region = this.regions.filter(
+      (x) => x.flag == true
+    ).length;
+    this.filtersCount.area = this.areas.filter((x) => x.flag == true).length;
+    this.filtersCount.territory = this.territories.filter(
+      (x) => x.flag == true
+    ).length;
   }
 }
 
