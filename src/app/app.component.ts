@@ -423,13 +423,6 @@ export class AppComponent {
     }
   }
 
-  public test(a: any, b: any) {
-    for (let i = 0; i < this.afterSearch.length; i++) {
-      this.afterSearch[i].flag = true;
-      this.selectedFilters.push(this.afterSearch[i].text);
-    }
-  }
-
   getPrimaryDataHeight(): any {
     let scrollBar = '';
     let height = '';
