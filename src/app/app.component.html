@@ -8,10 +8,9 @@
             <div class="col-md-6">
               <span class="text-uppercase font-weight-bold"
                 >Filters
-                <ng-template *ngIf="filtersCount.totalCount > 0"
-                  >({{ filtersCount.totalCount }})</ng-template
-                ></span
-              >
+                <ng-container *ngIf="filtersCount.totalCount > 0"
+                  >({{ filtersCount.totalCount }})</ng-container
+                ></span >
             </div>
             <div class="col-md-6 text-right">
               <button
