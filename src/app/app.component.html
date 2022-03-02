@@ -25,7 +25,10 @@
           </div>
 
           <div class="row">
-            <div class="col-12 border" style="height:80px; overflow-y: scroll;">
+            <div
+              class="col-12 border p-2"
+              style="height:75px; overflow-y: scroll;"
+            >
               <h5>
                 <span
                   class="
@@ -38,7 +41,12 @@
                   "
                   *ngFor="let item of selectedFilters"
                 >
-                  <span class="custom-blue-color font-weight-light">X</span>
+                  <span
+                    (click)="removeFilter(item.type, item.value)"
+                    style="cursor: pointer"
+                    class="custom-blue-color font-weight-light"
+                    >X</span
+                  >
                   {{ item.value }}</span
                 >
               </h5>

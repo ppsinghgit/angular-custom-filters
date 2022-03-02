@@ -474,6 +474,24 @@ export class AppComponent {
       this.filtersCount.area +
       this.filtersCount.territory;
   }
+
+  public removeFilter(type: string, value: string) {
+    let item: Dropdowndata;
+    if (type == sections.Region) {
+      this.regions.find((x) => x.value == value).flag = false;
+    } else if (type == sections.Area) {
+      this.areas.find((x) => x.value == value).flag = false;
+    } else if (type == sections.Territory) {
+      this.territories.find((x) => x.value == value).flag = false;
+    }
+    let index = this.selectedFilters.findIndex(
+      (x) => x.type == type && x.value == value
+    );
+    if (index > -1) {
+      this.selectedFilters.splice(index, 1);
+    }
+    this.setFiltersCount();
+  }
 }
 
 enum sections {
