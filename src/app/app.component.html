@@ -6,7 +6,12 @@
         <div class="col-md-12">
           <div class="row">
             <div class="col-md-6">
-              <span class="text-uppercase font-weight-bold">Filters (15)</span>
+              <span class="text-uppercase font-weight-bold"
+                >Filters
+                <ng-template *ngIf="filtersCount.totalCount > 0"
+                  >({{ filtersCount.totalCount }})</ng-template
+                ></span
+              >
             </div>
             <div class="col-md-6 text-right">
               <button
@@ -73,8 +78,10 @@
                       : 'font-weight-normal'
                   "
                 >
-                  Region<span class="ml-1" *ngIf="filtersCount.region > 0"
-                    >({{ filtersCount.region }})</span
+                  Region<span
+                    class="float-right pr-2 custom-blue-color"
+                    *ngIf="filtersCount.region > 0"
+                    >{{ filtersCount.region }}</span
                   >
                 </div>
                 <!-- area -->
@@ -87,9 +94,13 @@
                       : 'font-weight-normal'
                   "
                 >
-                  Area<span class="ml-1" *ngIf="filtersCount.area > 0"
-                    >({{ filtersCount.area }})</span
+                  Area
+                  <span
+                    class="float-right pr-2 custom-blue-color"
+                    *ngIf="filtersCount.area > 0"
                   >
+                    {{ filtersCount.area }}
+                  </span>
                 </div>
                 <!-- territory -->
                 <div
@@ -101,8 +112,10 @@
                       : 'font-weight-normal'
                   "
                 >
-                  Territory<span class="ml-1" *ngIf="filtersCount.territory > 0"
-                    >({{ filtersCount.territory }})</span
+                  Territory<span
+                    class="float-right pr-2 custom-blue-color"
+                    *ngIf="filtersCount.territory > 0"
+                    >{{ filtersCount.territory }}</span
                   >
                 </div>
 

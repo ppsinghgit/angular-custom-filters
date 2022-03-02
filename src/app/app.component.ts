@@ -455,7 +455,7 @@ export class AppComponent {
     };
   }
 
-  setFiltersCount() {
+  private setFiltersCount() {
     this.filtersCount.region = this.regions.filter(
       (x) => x.flag == true
     ).length;
@@ -463,6 +463,11 @@ export class AppComponent {
     this.filtersCount.territory = this.territories.filter(
       (x) => x.flag == true
     ).length;
+
+    this.filtersCount.totalCount =
+      this.filtersCount.region +
+      this.filtersCount.area +
+      this.filtersCount.territory;
   }
 }
 

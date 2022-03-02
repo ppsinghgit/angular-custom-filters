@@ -34,6 +34,10 @@ div {
 .section-array-div :hover {
   background-color: #f8f8f8;
 }
+
+.custom-blue-color {
+  color: #06597a;
+}
 /* scroll bar classes */
 /* width */
 ::-webkit-scrollbar {
