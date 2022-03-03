@@ -429,10 +429,10 @@ export class AppComponent {
   }
 
   public onApply() {
-    for (let i = 0; i < this.afterSearch.length; i++) {
-      this.afterSearch[i].flag = true;
-      this.selectedFilters.push(this.afterSearch[i].text);
-    }
+    // for (let i = 0; i < this.afterSearch.length; i++) {
+    //   this.afterSearch[i].flag = true;
+    //   this.selectedFilters.push(this.afterSearch[i].text);
+    // }
   }
 
   getPrimaryDataHeight(): any {
@@ -490,7 +490,11 @@ export class AppComponent {
     if (index > -1) {
       this.selectedFilters.splice(index, 1);
     }
-    this.setFiltersCount();
+
+    this.filtersCount.region = 0;
+    this.filtersCount.area = 0;
+    this.filtersCount.territory = 0;
+    this.filtersCount.totalCount = 0;
   }
 }
 
