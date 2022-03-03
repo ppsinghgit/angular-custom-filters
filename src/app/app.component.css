@@ -11,7 +11,8 @@ p {
   border: 2px solid #73a1b4;
 }
 .sectionHeading {
-  background-color: #dae6ec;
+  background-color: rgba(214, 233, 243, 0.961);
+  font-weight: 500;
 }
 .sectionItem {
   background-color: #edf4f7;
