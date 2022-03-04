@@ -411,6 +411,30 @@ export class AppComponent {
     this.setFiltersCount();
   }
 
+  public radioButtonEvent(selected: boolean, value: string) {
+    let item: any = null;
+    for (let i = 0; i < this.afterSearch.length; i++) {
+      if (this.afterSearch[i].value == value) {
+        this.afterSearch[i].flag = selected;
+        item = new SelectedFilterItem();
+        item.value = this.afterSearch[i].text;
+        item.type = this.selectedSection;
+        this.selectedFilters.push(item);
+      } else {
+        this.afterSearch[i].flag = false;
+        let index = this.selectedFilters.findIndex(
+          (x) =>
+            x.value == this.afterSearch[i].text &&
+            x.type == this.selectedSection
+        );
+        if (index > -1) {
+          this.selectedFilters.splice(index, 1);
+        }
+      }
+    }
+    this.setFiltersCount();
+  }
+
   public showDataClick() {
     if (this.showData) {
       this.showData = false;
@@ -425,6 +449,10 @@ export class AppComponent {
     this.itemSearched = '';
     this.selectedSection = 'none';
     this.selectedFilters = [];
+    this.filtersCount.region = 0;
+    this.filtersCount.area = 0;
+    this.filtersCount.territory = 0;
+    this.filtersCount.totalCount = 0;
     this.initiate();
   }
 
@@ -475,7 +503,7 @@ export class AppComponent {
       this.filtersCount.territory;
   }
 
-  public removeFilter(type: string, value: string) {
+  public removeSingleFilter(type: string, value: string) {
     let item: Dropdowndata;
     if (type == sections.Region) {
       this.regions.find((x) => x.value == value).flag = false;
@@ -490,11 +518,7 @@ export class AppComponent {
     if (index > -1) {
       this.selectedFilters.splice(index, 1);
     }
-
-    this.filtersCount.region = 0;
-    this.filtersCount.area = 0;
-    this.filtersCount.territory = 0;
-    this.filtersCount.totalCount = 0;
+    this.setFiltersCount();
   }
 }
 

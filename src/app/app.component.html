@@ -42,7 +42,7 @@
                   *ngFor="let item of selectedFilters"
                 >
                   <span
-                    (click)="removeFilter(item.type, item.value)"
+                    (click)="removeSingleFilter(item.type, item.value)"
                     style="cursor: pointer"
                     class="custom-blue-color font-weight-light"
                     >X</span
@@ -215,6 +215,22 @@
                             <input type="checkbox" [checked]="item.flag" />
                             {{ item.text }}
                           </div>
+
+                          <!-- <div
+                        (click)="radioButtonEvent(true, item.value)"
+                        [ngClass]="
+                          item.flag
+                            ? 'font-weight-bold selectedSection p-1 pl-2'
+                            : 'font-weight-normal p-1 pl-2'
+                        "
+                      >
+                        <input
+                          type="radio"
+                          [value]="item.flag"
+                          [checked]="item.flag"
+                        />
+                        {{ item.text }}
+                      </div> -->
                         </div>
                       </div>
                     </div>
@@ -227,16 +243,16 @@
       </div>
 
       <!-- <div class="row mt-2">
-      <div class="col-md-12">
-        <button class="btn btn-danger" (click)="clearAll()">Clear</button>
-      </div>
+    <div class="col-md-12">
+      <button class="btn btn-danger" (click)="clearAll()">Clear</button>
+    </div>
 
-      <div class="col-md-12 mt-4">
-        <button class="btn btn-link" (click)="showDataClick()">
-          Check Data
-        </button>
-      </div>
-    </div> -->
+    <div class="col-md-12 mt-4">
+      <button class="btn btn-link" (click)="showDataClick()">
+        Check Data
+      </button>
+    </div>
+  </div> -->
 
       <div class="row" *ngIf="showData">
         <div class="col-md-12">
