@@ -1,18 +1,17 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import {
   Dropdowndata,
-  ShowSelectedFiltersCountBySection,
   SelectedFilterItem,
-} from './model';
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-import { FilterModalComponent } from './filter-modal/filter-modal.component';
+  ShowSelectedFiltersCountBySection,
+} from './filter-model';
 
 @Component({
-  selector: 'my-app',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  selector: 'app-filter-modal',
+  templateUrl: './filter-modal.component.html',
+  styleUrls: ['./filter-modal.component.css'],
 })
-export class AppComponent {
+export class FilterModalComponent implements OnInit {
   public regions: Dropdowndata[];
   public areas: Dropdowndata[];
   public territories: Dropdowndata[];
@@ -28,9 +27,15 @@ export class AppComponent {
     new ShowSelectedFiltersCountBySection();
   public closeResult: string;
 
-  constructor(private modalService: NgbModal) {
-    this.initiate();
+  @Input() public user;
+
+  constructor(public activeModal: NgbActiveModal) {
     this.selectedFilters = [];
+    this.initiate();
+  }
+
+  ngOnInit() {
+    console.log(this.user);
   }
 
   initiate() {
@@ -524,37 +529,8 @@ export class AppComponent {
     this.setFiltersCount();
   }
 
-  open(content) {
-    this.modalService
-      .open(content, { ariaLabelledBy: 'modal-basic-title' })
-      .result.then(
-        (result) => {
-          this.closeResult = `Closed with: ${result}`;
-        },
-        (reason) => {
-          this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-        }
-      );
-  }
-
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return `with: ${reason}`;
-    }
-  }
-
-  openModal() {
-    const modalRef = this.modalService.open(FilterModalComponent);
-    modalRef.componentInstance.user = { name: 'Parminder Pal Singh', age: 32 };
-    modalRef.result.then((result) => {
-      if (result) {
-        console.log('result: ' + JSON.stringify(result));
-      }
-    });
+  public modalOk() {
+    this.activeModal.close({ name: 'Fateh', age: 24 });
   }
 }
 

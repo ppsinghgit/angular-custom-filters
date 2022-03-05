@@ -1,0 +1,76 @@
+* {
+  font-size: 12px;
+}
+
+p {
+  font-family: Lato;
+}
+
+.modal.custom .modal-dialog {
+  border-radius: 11px !important;
+  border: 1px solid #73a1b4 !important;
+}
+.main-border {
+  border: 0;
+}
+.sectionHeading {
+  background-color: rgba(214, 233, 243, 0.961);
+  font-weight: 500;
+}
+.sectionItem {
+  background-color: #edf4f7;
+  color: #7d8182;
+}
+.selectedSection {
+  background-color: white;
+}
+
+div {
+  color: #7d8182;
+}
+
+.custom-text-color {
+  color: #7d8182;
+}
+
+.clear-all-button {
+  color: #6498b2;
+}
+.section-array-div {
+  cursor: pointer;
+}
+.section-array-div :hover {
+  background-color: #f8f8f8;
+}
+
+.custom-blue-color {
+  color: #06597a;
+}
+
+.tag-item {
+  background-color: white;
+  color: #7d8182;
+}
+
+/* scroll bar classes */
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
