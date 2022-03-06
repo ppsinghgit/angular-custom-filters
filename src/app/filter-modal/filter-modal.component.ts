@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import {
   Dropdowndata,
+  FilterModel,
   SelectedFilterItem,
   ShowSelectedFiltersCountBySection,
 } from './filter-model';
@@ -27,7 +28,7 @@ export class FilterModalComponent implements OnInit {
     new ShowSelectedFiltersCountBySection();
   public closeResult: string;
 
-  @Input() public user;
+  @Input() public filterModel: FilterModel;
 
   constructor(public activeModal: NgbActiveModal) {
     this.selectedFilters = [];
@@ -35,7 +36,7 @@ export class FilterModalComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.user);
+    console.log(this.filterModel);
   }
 
   initiate() {
@@ -350,8 +351,8 @@ export class FilterModalComponent implements OnInit {
       { value: 'Ward 3', text: 'Ward 3', flag: false },
       { value: 'Ward 4', text: 'Ward 4', flag: false },
     ];
-
-    this.regions = _region as Dropdowndata[];
+    debugger;
+    this.regions = this.filterModel.regions;
     this.areas = _area as Dropdowndata[];
     this.territories = _territories as Dropdowndata[];
     this.primaryDdlData = [];

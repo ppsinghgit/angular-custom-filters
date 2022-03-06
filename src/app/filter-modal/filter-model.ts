@@ -19,3 +19,10 @@ export class SelectedFilterItem {
   value: string;
   type: string;
 }
+
+export class FilterModel {
+  public status: number;
+  public regions: Dropdowndata[];
+  public areas: Dropdowndata[];
+  public territories: Dropdowndata[];
+}
