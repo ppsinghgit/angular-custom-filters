@@ -350,7 +350,6 @@ export class AppComponent {
   }
 
   openModal() {
-    debugger;
     const modalRef = this.modalService.open(FilterModalComponent);
     modalRef.componentInstance.filterModel = this.filterModel;
     modalRef.result.then((result) => {
