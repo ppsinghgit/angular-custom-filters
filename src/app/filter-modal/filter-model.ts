@@ -22,6 +22,9 @@ export class SelectedFilterItem {
 
 export class FilterModel {
   public status: number;
+  public year: string;
+  public tradeProgramName: string;
+  public term: string;
   public regions: Dropdowndata[];
   public areas: Dropdowndata[];
   public territories: Dropdowndata[];

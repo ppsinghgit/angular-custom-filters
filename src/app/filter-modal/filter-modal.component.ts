@@ -30,6 +30,8 @@ export class FilterModalComponent implements OnInit {
 
   @Input() public filterModel: FilterModel;
 
+  public filterModelInCaseCancel: FilterModel;
+
   constructor(public activeModal: NgbActiveModal) {
     this.selectedFilters = [];
   }
@@ -39,6 +41,7 @@ export class FilterModalComponent implements OnInit {
   }
 
   initiate() {
+    this.filterModelInCaseCancel = JSON.parse(JSON.stringify(this.filterModel));
     this.regions = this.filterModel.regions;
     this.areas = this.filterModel.areas;
     this.territories = this.filterModel.territories;
@@ -220,6 +223,10 @@ export class FilterModalComponent implements OnInit {
   public ApplyFilter() {
     this.filterModel.status = 1;
     this.activeModal.close(this.filterModel);
+  }
+
+  public cancel() {
+    this.activeModal.close(this.filterModelInCaseCancel);
   }
 }
 
