@@ -1,12 +1,8 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import {
-  Dropdowndata,
-  ShowSelectedFiltersCountBySection,
-  SelectedFilterItem,
-} from './model';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { FilterModalComponent } from './filter-modal/filter-modal.component';
-import { FilterModel } from './filter-modal/filter-model';
+import { Dropdowndata, FilterModel } from './filter-modal/filter-model';
+import { DropdowndataDashboard } from './model';
 
 @Component({
   selector: 'my-app',
@@ -24,319 +20,349 @@ export class AppComponent {
   initiate() {
     let _region = [
       {
-        value: 'AL',
-        text: 'AL',
-        flag: false,
+        Value: 'AL',
+        Text: 'AL',
       },
       {
-        value: 'AK',
-        text: 'AK',
-        flag: false,
+        Value: 'AK',
+        Text: 'AK',
       },
       {
-        text: 'AS',
-        flag: false,
-        value: 'AS',
+        Text: 'AS',
+
+        Value: 'AS',
       },
       {
-        text: 'AZ',
-        flag: false,
-        value: 'AZ',
+        Text: 'AZ',
+
+        Value: 'AZ',
       },
       {
-        text: 'AR',
-        flag: false,
-        value: 'AR',
+        Text: 'AR',
+
+        Value: 'AR',
       },
       {
-        text: 'CA',
-        flag: false,
-        value: 'CA',
+        Text: 'CA',
+
+        Value: 'CA',
       },
       {
-        text: 'CO',
-        flag: false,
-        value: 'CO',
+        Text: 'CO',
+
+        Value: 'CO',
       },
       {
-        text: 'CT',
-        flag: false,
-        value: 'CT',
+        Text: 'CT',
+
+        Value: 'CT',
       },
       {
-        text: 'DE',
-        flag: false,
-        value: 'DE',
+        Text: 'DE',
+
+        Value: 'DE',
       },
       {
-        text: 'DC',
-        flag: false,
-        value: 'DC',
+        Text: 'DC',
+
+        Value: 'DC',
       },
       {
-        text: 'FM',
-        flag: false,
-        value: 'FM',
+        Text: 'FM',
+
+        Value: 'FM',
       },
       {
-        text: 'FL',
-        flag: false,
-        value: 'FL',
+        Text: 'FL',
+
+        Value: 'FL',
       },
       {
-        text: 'GA',
-        flag: false,
-        value: 'GA',
+        Text: 'GA',
+
+        Value: 'GA',
       },
       {
-        text: 'GU',
-        flag: false,
-        value: 'GU',
+        Text: 'GU',
+
+        Value: 'GU',
       },
       {
-        text: 'HI',
-        flag: false,
-        value: 'HI',
+        Text: 'HI',
+
+        Value: 'HI',
       },
       {
-        text: 'ID',
-        flag: false,
-        value: 'ID',
+        Text: 'ID',
+
+        Value: 'ID',
       },
       {
-        text: 'IL',
-        flag: false,
-        value: 'IL',
+        Text: 'IL',
+
+        Value: 'IL',
       },
       {
-        text: 'IN',
-        flag: false,
-        value: 'IN',
+        Text: 'IN',
+
+        Value: 'IN',
       },
       {
-        text: 'IA',
-        flag: false,
-        value: 'IA',
+        Text: 'IA',
+
+        Value: 'IA',
       },
       {
-        text: 'KS',
-        flag: false,
-        value: 'KS',
+        Text: 'KS',
+
+        Value: 'KS',
       },
       {
-        text: 'KY',
-        flag: false,
-        value: 'KY',
+        Text: 'KY',
+
+        Value: 'KY',
       },
       {
-        text: 'LA',
-        flag: false,
-        value: 'LA',
+        Text: 'LA',
+
+        Value: 'LA',
       },
       {
-        text: 'ME',
-        flag: false,
-        value: 'ME',
+        Text: 'ME',
+
+        Value: 'ME',
       },
       {
-        text: 'MH',
-        flag: false,
-        value: 'MH',
+        Text: 'MH',
+
+        Value: 'MH',
       },
       {
-        text: 'MD',
-        flag: false,
-        value: 'MD',
+        Text: 'MD',
+
+        Value: 'MD',
       },
       {
-        text: 'MA',
-        flag: false,
-        value: 'MA',
+        Text: 'MA',
+
+        Value: 'MA',
       },
       {
-        text: 'MI',
-        flag: false,
-        value: 'MI',
+        Text: 'MI',
+
+        Value: 'MI',
       },
       {
-        text: 'MN',
-        flag: false,
-        value: 'MN',
+        Text: 'MN',
+
+        Value: 'MN',
       },
       {
-        text: 'MS',
-        flag: false,
-        value: 'MS',
+        Text: 'MS',
+
+        Value: 'MS',
       },
       {
-        text: 'MO',
-        flag: false,
-        value: 'MO',
+        Text: 'MO',
+
+        Value: 'MO',
       },
       {
-        text: 'MT',
-        flag: false,
-        value: 'MT',
+        Text: 'MT',
+
+        Value: 'MT',
       },
       {
-        text: 'NE',
-        flag: false,
-        value: 'NE',
+        Text: 'NE',
+
+        Value: 'NE',
       },
       {
-        text: 'NV',
-        flag: false,
-        value: 'NV',
+        Text: 'NV',
+
+        Value: 'NV',
       },
       {
-        text: 'NH',
-        flag: false,
-        value: 'NH',
+        Text: 'NH',
+
+        Value: 'NH',
       },
       {
-        text: 'NJ',
-        flag: false,
-        value: 'NJ',
+        Text: 'NJ',
+
+        Value: 'NJ',
       },
       {
-        text: 'NM',
-        flag: false,
-        value: 'NM',
+        Text: 'NM',
+
+        Value: 'NM',
       },
       {
-        text: 'NY',
-        flag: false,
-        value: 'NY',
+        Text: 'NY',
+
+        Value: 'NY',
       },
       {
-        text: 'NC',
-        flag: false,
-        value: 'NC',
+        Text: 'NC',
+
+        Value: 'NC',
       },
       {
-        text: 'ND',
-        flag: false,
-        value: 'ND',
+        Text: 'ND',
+
+        Value: 'ND',
       },
       {
-        text: 'MP',
-        flag: false,
-        value: 'MP',
+        Text: 'MP',
+
+        Value: 'MP',
       },
       {
-        text: 'OH',
-        flag: false,
-        value: 'OH',
+        Text: 'OH',
+
+        Value: 'OH',
       },
       {
-        text: 'OK',
-        flag: false,
-        value: 'OK',
+        Text: 'OK',
+
+        Value: 'OK',
       },
       {
-        text: 'OR',
-        flag: false,
-        value: 'OR',
+        Text: 'OR',
+
+        Value: 'OR',
       },
       {
-        text: 'PW',
-        flag: false,
-        value: 'PW',
+        Text: 'PW',
+
+        Value: 'PW',
       },
       {
-        text: 'PA',
-        flag: false,
-        value: 'PA',
+        Text: 'PA',
+
+        Value: 'PA',
       },
       {
-        text: 'PR',
-        flag: false,
-        value: 'PR',
+        Text: 'PR',
+
+        Value: 'PR',
       },
       {
-        text: 'RI',
-        flag: false,
-        value: 'RI',
+        Text: 'RI',
+
+        Value: 'RI',
       },
       {
-        text: 'SC',
-        flag: false,
-        value: 'SC',
+        Text: 'SC',
+
+        Value: 'SC',
       },
       {
-        text: 'SD',
-        flag: false,
-        value: 'SD',
+        Text: 'SD',
+
+        Value: 'SD',
       },
       {
-        text: 'TN',
-        flag: false,
-        value: 'TN',
+        Text: 'TN',
+
+        Value: 'TN',
       },
       {
-        text: 'TX',
-        flag: false,
-        value: 'TX',
+        Text: 'TX',
+
+        Value: 'TX',
       },
       {
-        text: 'UT',
-        flag: false,
-        value: 'UT',
+        Text: 'UT',
+
+        Value: 'UT',
       },
       {
-        text: 'VT',
-        flag: false,
-        value: 'VT',
+        Text: 'VT',
+
+        Value: 'VT',
       },
       {
-        text: 'VI',
-        flag: false,
-        value: 'VI',
+        Text: 'VI',
+
+        Value: 'VI',
       },
       {
-        text: 'VA',
-        flag: false,
-        value: 'VA',
+        Text: 'VA',
+
+        Value: 'VA',
       },
       {
-        text: 'WA',
-        flag: false,
-        value: 'WA',
+        Text: 'WA',
+
+        Value: 'WA',
       },
       {
-        text: 'WV',
-        flag: false,
-        value: 'WV',
+        Text: 'WV',
+
+        Value: 'WV',
       },
       {
-        text: 'WI',
-        flag: false,
-        value: 'WI',
+        Text: 'WI',
+
+        Value: 'WI',
       },
       {
-        text: 'WY',
-        flag: false,
-        value: 'WY',
+        Text: 'WY',
+
+        Value: 'WY',
       },
     ];
 
     let _area = [
-      { value: '201', text: '201', flag: false },
-      { value: '202', text: '202', flag: false },
-      { value: '203', text: '203', flag: false },
-      { value: '204', text: '204', flag: false },
+      { Value: '201', Text: '201', flag: false },
+      { Value: '202', Text: '202', flag: false },
+      { Value: '203', Text: '203', flag: false },
+      { Value: '204', Text: '204', flag: false },
     ];
 
     let _territories = [
-      { value: 'Ward 1', text: 'Ward 1', flag: false },
-      { value: 'Ward 2', text: 'Ward 2', flag: false },
-      { value: 'Ward 3', text: 'Ward 3', flag: false },
-      { value: 'Ward 4', text: 'Ward 4', flag: false },
+      { Value: 'Ward 1', Text: 'Ward 1', flag: false },
+      { Value: 'Ward 2', Text: 'Ward 2', flag: false },
+      { Value: 'Ward 3', Text: 'Ward 3', flag: false },
+      { Value: 'Ward 4', Text: 'Ward 4', flag: false },
     ];
     this.filterModel = new FilterModel();
-    this.filterModel.regions = _region as Dropdowndata[];
-    this.filterModel.areas = _area as Dropdowndata[];
-    this.filterModel.territories = _territories as Dropdowndata[];
+    this.filterModel.Regions = this.normaliseDropdownData(
+      _region,
+      sectionType.SalesHierarchy
+    );
+    this.filterModel.Areas = this.normaliseDropdownData(
+      _area,
+      sectionType.SalesHierarchy
+    );
+    this.filterModel.Territories = this.normaliseDropdownData(
+      _territories,
+      sectionType.SalesHierarchy
+    );
+    console.log('filetr model ------------');
+    console.log(JSON.stringify(this.filterModel));
+  }
+
+  private normaliseDropdownData(
+    data: DropdowndataDashboard[],
+    type: string
+  ): Dropdowndata[] {
+    debugger;
+    let outputArray: Dropdowndata[] = [];
+    let item: Dropdowndata;
+
+    for (let i = 0; i < data.length; i++) {
+      item = null;
+      item = new Dropdowndata();
+      item.Text = data[i].Text;
+      item.Value = data[i].Value;
+      item.Flag = false;
+      item.Type = type;
+      outputArray.push(item);
+    }
+
+    return outputArray;
   }
 
   private getDismissReason(reason: any): string {
@@ -350,6 +376,8 @@ export class AppComponent {
   }
 
   openModal() {
+    console.log('filetr model ------------');
+    console.log(JSON.stringify(this.filterModel));
     const modalRef = this.modalService.open(FilterModalComponent);
     modalRef.componentInstance.filterModel = this.filterModel;
     modalRef.result.then((result) => {
@@ -364,4 +392,10 @@ enum sections {
   Region = 'region',
   Area = 'area',
   Territory = 'territory',
+}
+
+enum sectionType {
+  SalesHierarchy = 'SalesHierarchy',
+  AccountHierarchy = 'AccountHierarchy',
+  RetailerAccounts = 'RetailerAccounts',
 }

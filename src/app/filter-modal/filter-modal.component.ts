@@ -13,9 +13,6 @@ import {
   styleUrls: ['./filter-modal.component.css'],
 })
 export class FilterModalComponent implements OnInit {
-  public regions: Dropdowndata[];
-  public areas: Dropdowndata[];
-  public territories: Dropdowndata[];
   public primaryDdlData: Dropdowndata[];
   public afterSearch: Dropdowndata[];
   public itemSearched: string;
@@ -42,9 +39,6 @@ export class FilterModalComponent implements OnInit {
 
   initiate() {
     this.filterModelInCaseCancel = JSON.parse(JSON.stringify(this.filterModel));
-    this.regions = this.filterModel.regions;
-    this.areas = this.filterModel.areas;
-    this.territories = this.filterModel.territories;
     this.primaryDdlData = [];
     this.afterSearch = [];
     this.itemSearched = '';
@@ -52,17 +46,17 @@ export class FilterModalComponent implements OnInit {
 
   public OnRegionClick() {
     this.selectedSection = sections.Region;
-    this.setPrimaryData(this.regions);
+    this.setPrimaryData(this.filterModel.Regions);
   }
 
   public OnAreaClick() {
     this.selectedSection = sections.Area;
-    this.setPrimaryData(this.areas);
+    this.setPrimaryData(this.filterModel.Areas);
   }
 
   public OnTerritoryClick() {
     this.selectedSection = sections.Territory;
-    this.setPrimaryData(this.territories);
+    this.setPrimaryData(this.filterModel.Territories);
   }
 
   private setPrimaryData(data: Dropdowndata[]) {
@@ -79,7 +73,7 @@ export class FilterModalComponent implements OnInit {
   onSearchChange(searchValue: string): void {
     this.itemSearched = searchValue;
     this.afterSearch = this.primaryDdlData.filter((x) =>
-      x.value.toLowerCase().includes(searchValue.toLowerCase())
+      x.Value.toLowerCase().includes(searchValue.toLowerCase())
     );
     this.getPrimaryDataHeight();
   }
@@ -87,19 +81,19 @@ export class FilterModalComponent implements OnInit {
   public checkBoxEvent(selected: boolean, value: string) {
     selected = selected ? false : true;
     for (let i = 0; i < this.afterSearch.length; i++) {
-      if (this.afterSearch[i].value == value) {
-        this.afterSearch[i].flag = selected;
-        if (this.afterSearch[i].flag) {
+      if (this.afterSearch[i].Value == value) {
+        this.afterSearch[i].Flag = selected;
+        if (this.afterSearch[i].Flag) {
           let item = new SelectedFilterItem();
-          item.value = this.afterSearch[i].text;
-          item.type = this.selectedSection;
+          item.Value = this.afterSearch[i].Text;
+          item.Type = this.selectedSection;
 
           this.selectedFilters.push(item);
         } else {
           let index = this.selectedFilters.findIndex(
             (x) =>
-              x.value == this.afterSearch[i].text &&
-              x.type == this.selectedSection
+              x.Value == this.afterSearch[i].Text &&
+              x.Type == this.selectedSection
           );
           if (index > -1) {
             this.selectedFilters.splice(index, 1);
@@ -113,18 +107,18 @@ export class FilterModalComponent implements OnInit {
   public radioButtonEvent(selected: boolean, value: string) {
     let item: any = null;
     for (let i = 0; i < this.afterSearch.length; i++) {
-      if (this.afterSearch[i].value == value) {
-        this.afterSearch[i].flag = selected;
+      if (this.afterSearch[i].Value == value) {
+        this.afterSearch[i].Flag = selected;
         item = new SelectedFilterItem();
-        item.value = this.afterSearch[i].text;
-        item.type = this.selectedSection;
+        item.Value = this.afterSearch[i].Text;
+        item.Type = this.selectedSection;
         this.selectedFilters.push(item);
       } else {
-        this.afterSearch[i].flag = false;
+        this.afterSearch[i].Flag = false;
         let index = this.selectedFilters.findIndex(
           (x) =>
-            x.value == this.afterSearch[i].text &&
-            x.type == this.selectedSection
+            x.Value == this.afterSearch[i].Text &&
+            x.Type == this.selectedSection
         );
         if (index > -1) {
           this.selectedFilters.splice(index, 1);
@@ -148,17 +142,17 @@ export class FilterModalComponent implements OnInit {
     this.itemSearched = '';
     this.selectedSection = 'none';
     this.selectedFilters = [];
-    this.filtersCount.region = 0;
-    this.filtersCount.area = 0;
-    this.filtersCount.territory = 0;
-    this.filtersCount.totalCount = 0;
+    this.filtersCount.Region = 0;
+    this.filtersCount.Area = 0;
+    this.filtersCount.Territory = 0;
+    this.filtersCount.TotalCount = 0;
     this.initiate();
   }
 
   public onApply() {
     // for (let i = 0; i < this.afterSearch.length; i++) {
-    //   this.afterSearch[i].flag = true;
-    //   this.selectedFilters.push(this.afterSearch[i].text);
+    //   this.afterSearch[i].Flag = true;
+    //   this.selectedFilters.push(this.afterSearch[i].Text);
     // }
   }
 
@@ -188,31 +182,33 @@ export class FilterModalComponent implements OnInit {
   }
 
   private setFiltersCount() {
-    this.filtersCount.region = this.regions.filter(
-      (x) => x.flag == true
+    this.filtersCount.Region = this.filterModel.Regions.filter(
+      (x) => x.Flag == true
     ).length;
-    this.filtersCount.area = this.areas.filter((x) => x.flag == true).length;
-    this.filtersCount.territory = this.territories.filter(
-      (x) => x.flag == true
+    this.filtersCount.Area = this.filterModel.Areas.filter(
+      (x) => x.Flag == true
+    ).length;
+    this.filtersCount.Territory = this.filterModel.Territories.filter(
+      (x) => x.Flag == true
     ).length;
 
-    this.filtersCount.totalCount =
-      this.filtersCount.region +
-      this.filtersCount.area +
-      this.filtersCount.territory;
+    this.filtersCount.TotalCount =
+      this.filtersCount.Region +
+      this.filtersCount.Area +
+      this.filtersCount.Territory;
   }
 
   public removeSingleFilter(type: string, value: string) {
     let item: Dropdowndata;
     if (type == sections.Region) {
-      this.regions.find((x) => x.value == value).flag = false;
+      this.filterModel.Regions.find((x) => x.Value == value).Flag = false;
     } else if (type == sections.Area) {
-      this.areas.find((x) => x.value == value).flag = false;
+      this.filterModel.Areas.find((x) => x.Value == value).Flag = false;
     } else if (type == sections.Territory) {
-      this.territories.find((x) => x.value == value).flag = false;
+      this.filterModel.Territories.find((x) => x.Value == value).Flag = false;
     }
     let index = this.selectedFilters.findIndex(
-      (x) => x.type == type && x.value == value
+      (x) => x.Type == type && x.Value == value
     );
     if (index > -1) {
       this.selectedFilters.splice(index, 1);
@@ -221,7 +217,7 @@ export class FilterModalComponent implements OnInit {
   }
 
   public ApplyFilter() {
-    this.filterModel.status = 1;
+    this.filterModel.Status = 1;
     this.activeModal.close(this.filterModel);
   }
 

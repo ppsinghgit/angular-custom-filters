@@ -14,8 +14,8 @@
               <div class="col-md-6 pt-2">
                 <span class="text-uppercase font-weight-bold"
                   >Filters
-                  <ng-container *ngIf="filtersCount.totalCount > 0"
-                    >({{ filtersCount.totalCount }})</ng-container
+                  <ng-container *ngIf="filtersCount.TotalCount > 0"
+                    >({{ filtersCount.TotalCount }})</ng-container
                   ></span
                 >
               </div>
@@ -48,12 +48,12 @@
                     *ngFor="let item of selectedFilters"
                   >
                     <span
-                      (click)="removeSingleFilter(item.type, item.value)"
+                      (click)="removeSingleFilter(item.Type, item.Value)"
                       style="cursor: pointer"
                       class="custom-blue-color font-weight-light"
                       >X</span
                     >
-                    {{ item.value }}</span
+                    {{ item.Value }}</span
                   >
                 </h5>
               </div>
@@ -108,8 +108,8 @@
                         custom-blue-color
                         font-weight-bold
                       "
-                      *ngIf="filtersCount.region > 0"
-                      >{{ filtersCount.region }}</span
+                      *ngIf="filtersCount.Region > 0"
+                      >{{ filtersCount.Region }}</span
                     >
                   </div>
                   <!-- area -->
@@ -130,9 +130,9 @@
                         custom-blue-color
                         font-weight-bold
                       "
-                      *ngIf="filtersCount.area > 0"
+                      *ngIf="filtersCount.Area > 0"
                     >
-                      {{ filtersCount.area }}
+                      {{ filtersCount.Area }}
                     </span>
                   </div>
                   <!-- territory -->
@@ -152,8 +152,8 @@
                         custom-blue-color
                         font-weight-bold
                       "
-                      *ngIf="filtersCount.territory > 0"
-                      >{{ filtersCount.territory }}</span
+                      *ngIf="filtersCount.Territory > 0"
+                      >{{ filtersCount.Territory }}</span
                     >
                   </div>
 
@@ -226,31 +226,31 @@
                             *ngFor="let item of afterSearch"
                           >
                             <div
-                              (click)="checkBoxEvent(item.flag, item.value)"
+                              (click)="checkBoxEvent(item.Flag, item.Value)"
                               [ngClass]="
-                                item.flag
+                                item.Flag
                                   ? 'font-weight-bold selectedSection p-1 pl-2'
                                   : 'font-weight-normal p-1 pl-2'
                               "
                             >
-                              <input type="checkbox" [checked]="item.flag" />
-                              {{ item.text }}
+                              <input type="checkbox" [checked]="item.Flag" />
+                              {{ item.Text }}
                             </div>
 
                             <!-- <div
-                  (click)="radioButtonEvent(true, item.value)"
+                  (click)="radioButtonEvent(true, item.Value)"
                   [ngClass]="
-                    item.flag
+                    item.Flag
                       ? 'font-weight-bold selectedSection p-1 pl-2'
                       : 'font-weight-normal p-1 pl-2'
                   "
                 >
                   <input
                     type="radio"
-                    [value]="item.flag"
-                    [checked]="item.flag"
+                    [value]="item.Flag"
+                    [checked]="item.Flag"
                   />
-                  {{ item.text }}
+                  {{ item.Text }}
                 </div> -->
                           </div>
                         </div>
@@ -287,14 +287,14 @@
                     <th>Flag</th>
                   </tr>
                   <tr *ngFor="let item of primaryDdlData">
-                    <td>{{ item.value }}</td>
-                    <td>{{ item.text }}</td>
+                    <td>{{ item.Value }}</td>
+                    <td>{{ item.Text }}</td>
                     <td
                       [ngStyle]="{
-                        color: item.flag === true ? 'green' : 'red'
+                        color: item.Flag === true ? 'green' : 'red'
                       }"
                     >
-                      {{ item.flag }}
+                      {{ item.Flag }}
                     </td>
                   </tr>
                 </table>
@@ -309,14 +309,14 @@
                     <th>Flag</th>
                   </tr>
                   <tr *ngFor="let item of afterSearch">
-                    <td>{{ item.value }}</td>
-                    <td>{{ item.text }}</td>
+                    <td>{{ item.Value }}</td>
+                    <td>{{ item.Text }}</td>
                     <td
                       [ngStyle]="{
-                        color: item.flag === true ? 'green' : 'red'
+                        color: item.Flag === true ? 'green' : 'red'
                       }"
                     >
-                      {{ item.flag }}
+                      {{ item.Flag }}
                     </td>
                   </tr>
                 </table>
@@ -333,14 +333,14 @@
                     <th>Flag</th>
                   </tr>
                   <tr *ngFor="let item of regions">
-                    <td>{{ item.value }}</td>
-                    <td>{{ item.text }}</td>
+                    <td>{{ item.Value }}</td>
+                    <td>{{ item.Text }}</td>
                     <td
                       [ngStyle]="{
-                        color: item.flag === true ? 'green' : 'red'
+                        color: item.Flag === true ? 'green' : 'red'
                       }"
                     >
-                      {{ item.flag }}
+                      {{ item.Flag }}
                     </td>
                   </tr>
                 </table>
@@ -355,14 +355,14 @@
                     <th>Flag</th>
                   </tr>
                   <tr *ngFor="let item of areas">
-                    <td>{{ item.value }}</td>
-                    <td>{{ item.text }}</td>
+                    <td>{{ item.Value }}</td>
+                    <td>{{ item.Text }}</td>
                     <td
                       [ngStyle]="{
-                        color: item.flag === true ? 'green' : 'red'
+                        color: item.Flag === true ? 'green' : 'red'
                       }"
                     >
-                      {{ item.flag }}
+                      {{ item.Flag }}
                     </td>
                   </tr>
                 </table>
@@ -377,14 +377,14 @@
                     <th>Flag</th>
                   </tr>
                   <tr *ngFor="let item of territories">
-                    <td>{{ item.value }}</td>
-                    <td>{{ item.text }}</td>
+                    <td>{{ item.Value }}</td>
+                    <td>{{ item.Text }}</td>
                     <td
                       [ngStyle]="{
-                        color: item.flag === true ? 'green' : 'red'
+                        color: item.Flag === true ? 'green' : 'red'
                       }"
                     >
-                      {{ item.flag }}
+                      {{ item.Flag }}
                     </td>
                   </tr>
                 </table>
