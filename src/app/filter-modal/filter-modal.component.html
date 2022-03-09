@@ -221,38 +221,51 @@
                     <div class="row">
                       <div class="col-md-12 pr-4">
                         <div class="row" [ngStyle]="getPrimaryDataHeight()">
-                          <div
-                            class="col-md-12 mb-1 section-array-div"
-                            *ngFor="let item of afterSearch"
+                          <ng-container
+                            *ngIf="selectedSectionType != 'SalesHierarchy'"
                           >
                             <div
-                              (click)="checkBoxEvent(item.Flag, item.Value)"
-                              [ngClass]="
-                                item.Flag
-                                  ? 'font-weight-bold selectedSection p-1 pl-2'
-                                  : 'font-weight-normal p-1 pl-2'
-                              "
+                              class="col-md-12 mb-1 section-array-div"
+                              *ngFor="let item of afterSearch"
                             >
-                              <input type="checkbox" [checked]="item.Flag" />
-                              {{ item.Text }}
+                              <div
+                                (click)="checkBoxEvent(item.Flag, item.Value)"
+                                [ngClass]="
+                                  item.Flag
+                                    ? 'font-weight-bold selectedSection p-1 pl-2'
+                                    : 'font-weight-normal p-1 pl-2'
+                                "
+                              >
+                                <input type="checkbox" [checked]="item.Flag" />
+                                {{ item.Text }}
+                              </div>
                             </div>
+                          </ng-container>
 
-                            <!-- <div
-                  (click)="radioButtonEvent(true, item.Value)"
-                  [ngClass]="
-                    item.Flag
-                      ? 'font-weight-bold selectedSection p-1 pl-2'
-                      : 'font-weight-normal p-1 pl-2'
-                  "
-                >
-                  <input
-                    type="radio"
-                    [value]="item.Flag"
-                    [checked]="item.Flag"
-                  />
-                  {{ item.Text }}
-                </div> -->
-                          </div>
+                          <ng-container
+                            *ngIf="selectedSectionType == 'SalesHierarchy'"
+                          >
+                            <div
+                              class="col-md-12 mb-1 section-array-div"
+                              *ngFor="let item of afterSearch"
+                            >
+                              <div
+                                (click)="radioButtonEvent(true, item.Value)"
+                                [ngClass]="
+                                  item.Flag
+                                    ? 'font-weight-bold selectedSection p-1 pl-2'
+                                    : 'font-weight-normal p-1 pl-2'
+                                "
+                              >
+                                <input
+                                  type="radio"
+                                  [value]="item.Flag"
+                                  [checked]="item.Flag"
+                                />
+                                {{ item.Text }}
+                              </div>
+                            </div>
+                          </ng-container>
                         </div>
                       </div>
                     </div>

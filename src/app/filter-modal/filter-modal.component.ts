@@ -28,6 +28,7 @@ export class FilterModalComponent implements OnInit {
   @Input() public filterModel: FilterModel;
 
   public filterModelInCaseCancel: FilterModel;
+  public selectedSectionType: string = '';
 
   constructor(public activeModal: NgbActiveModal) {
     this.selectedFilters = [];
@@ -45,16 +46,19 @@ export class FilterModalComponent implements OnInit {
   }
 
   public OnRegionClick() {
+    this.selectedSectionType = sectionType.SalesHierarchy;
     this.selectedSection = sections.Region;
     this.setPrimaryData(this.filterModel.Regions);
   }
 
   public OnAreaClick() {
+    this.selectedSectionType = sectionType.SalesHierarchy;
     this.selectedSection = sections.Area;
     this.setPrimaryData(this.filterModel.Areas);
   }
 
   public OnTerritoryClick() {
+    this.selectedSectionType = sectionType.SalesHierarchy;
     this.selectedSection = sections.Territory;
     this.setPrimaryData(this.filterModel.Territories);
   }
@@ -230,4 +234,10 @@ enum sections {
   Region = 'region',
   Area = 'area',
   Territory = 'territory',
+}
+
+enum sectionType {
+  SalesHierarchy = 'SalesHierarchy',
+  AccountHierarchy = 'AccountHierarchy',
+  RetailerAccounts = 'RetailerAccounts',
 }
