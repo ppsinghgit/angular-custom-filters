@@ -433,7 +433,14 @@
                     />
                   </div>
                   <div class="col-md-4 mt-0 mb-0 mr-0 pt-0 pb-0 pr-0">
-                    <button type="button" class="btn btn-primary">ADD</button>
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      (click)="addFilter()"
+                      [(NgModel)]="addText"
+                    >
+                      ADD
+                    </button>
                   </div>
                   <div class="col-md-12">
                     <div class="row">
