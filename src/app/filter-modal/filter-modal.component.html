@@ -161,7 +161,122 @@
                     Enrollment Status
                   </div>
 
-                  <!-- heading -->
+                  <!-- heading Payto-->
+                  <div class="col-md-12 p-1 pl-2 mb-1 text-left sectionHeading">
+                    PayTo Information
+                  </div>
+
+                  <!-- payto name -->
+                  <div
+                    class="col-md-12 p-2 pl-4 mb-1 text-left sectionItem"
+                    (click)="OnRegionClick()"
+                    [ngClass]="
+                      selectedSection === 'payToName'
+                        ? 'font-weight-bold selectedSection'
+                        : 'font-weight-normal'
+                    "
+                  >
+                    Name<span
+                      class="
+                        float-right
+                        pr-2
+                        custom-blue-color
+                        font-weight-bold
+                      "
+                      *ngIf="filtersCount.Region > 0"
+                      >{{ filtersCount.PayToName }}</span
+                    >
+                  </div>
+
+                  <!-- payto name -->
+                  <div
+                    class="col-md-12 p-2 pl-4 mb-1 text-left sectionItem"
+                    (click)="OnRegionClick()"
+                    [ngClass]="
+                      selectedSection === 'payToAddress'
+                        ? 'font-weight-bold selectedSection'
+                        : 'font-weight-normal'
+                    "
+                  >
+                    Address<span
+                      class="
+                        float-right
+                        pr-2
+                        custom-blue-color
+                        font-weight-bold
+                      "
+                      *ngIf="filtersCount.Region > 0"
+                      >{{ filtersCount.PayToAddress }}</span
+                    >
+                  </div>
+
+                  <!-- payto city -->
+                  <div
+                    class="col-md-12 p-2 pl-4 mb-1 text-left sectionItem"
+                    (click)="OnRegionClick()"
+                    [ngClass]="
+                      selectedSection === 'payToCity'
+                        ? 'font-weight-bold selectedSection'
+                        : 'font-weight-normal'
+                    "
+                  >
+                    City<span
+                      class="
+                        float-right
+                        pr-2
+                        custom-blue-color
+                        font-weight-bold
+                      "
+                      *ngIf="filtersCount.Region > 0"
+                      >{{ filtersCount.PayToCity }}</span
+                    >
+                  </div>
+
+                  <!-- payto State -->
+                  <div
+                    class="col-md-12 p-2 pl-4 mb-1 text-left sectionItem"
+                    (click)="OnRegionClick()"
+                    [ngClass]="
+                      selectedSection === 'payToState'
+                        ? 'font-weight-bold selectedSection'
+                        : 'font-weight-normal'
+                    "
+                  >
+                    State<span
+                      class="
+                        float-right
+                        pr-2
+                        custom-blue-color
+                        font-weight-bold
+                      "
+                      *ngIf="filtersCount.Region > 0"
+                      >{{ filtersCount.PayToState }}</span
+                    >
+                  </div>
+
+                  <!-- payto zip -->
+                  <div
+                    class="col-md-12 p-2 pl-4 mb-1 text-left sectionItem"
+                    (click)="OnRegionClick()"
+                    [ngClass]="
+                      selectedSection === 'payToZip'
+                        ? 'font-weight-bold selectedSection'
+                        : 'font-weight-normal'
+                    "
+                  >
+                    Zip<span
+                      class="
+                        float-right
+                        pr-2
+                        custom-blue-color
+                        font-weight-bold
+                      "
+                      *ngIf="filtersCount.Region > 0"
+                      >{{ filtersCount.PayToZip }}</span
+                    >
+                  </div>
+
+                  <!-- heading location-->
                   <div
                     class="
                       col-md-12
@@ -173,8 +288,9 @@
                       text-uppercase
                     "
                   >
-                    PayTo Information
+                    Location
                   </div>
+
                   <!-- region -->
                   <div
                     class="col-md-12 p-2 pl-4 mb-1 text-left sectionItem"
@@ -291,7 +407,7 @@
               </div>
               <div class="col-7 col-md-7">
                 <div class="row mt-3">
-                  <div class="col-md-12">
+                  <div class="col-md-8 mt-0 mb-0 mr-0 pt-0 pb-0 pr-0">
                     <input
                       type="text"
                       class="mb-2 form-control"
@@ -300,6 +416,9 @@
                       (input)="onSearchChange($event.target.value)"
                       style="background-color:#f8f8f8; border:0; border-radius:0"
                     />
+                  </div>
+                  <div class="col-md-4 mt-0 mb-0 mr-0 pt-0 pb-0 pr-0">
+                    <button type="button" class="btn btn-primary">ADD</button>
                   </div>
                   <div class="col-md-12">
                     <div class="row">
@@ -360,18 +479,6 @@
           </div>
         </div>
 
-        <!-- <div class="row mt-2">
-<div class="col-md-12">
-<button class="btn btn-danger" (click)="clearAll()">Clear</button>
-</div>
-
-<div class="col-md-12 mt-4">
-<button class="btn btn-link" (click)="showDataClick()">
-  Check Data
-</button>
-</div>
-</div> -->
-
         <div class="row" *ngIf="showData">
           <div class="col-md-12">
             <div class="row">
@@ -384,28 +491,6 @@
                     <th>Flag</th>
                   </tr>
                   <tr *ngFor="let item of primaryDdlData">
-                    <td>{{ item.Value }}</td>
-                    <td>{{ item.Text }}</td>
-                    <td
-                      [ngStyle]="{
-                        color: item.Flag === true ? 'green' : 'red'
-                      }"
-                    >
-                      {{ item.Flag }}
-                    </td>
-                  </tr>
-                </table>
-              </div>
-
-              <div class="col-md-5 mr-4">
-                After Search Data
-                <table border="1">
-                  <tr>
-                    <th>Value</th>
-                    <th>Text</th>
-                    <th>Flag</th>
-                  </tr>
-                  <tr *ngFor="let item of afterSearch">
                     <td>{{ item.Value }}</td>
                     <td>{{ item.Text }}</td>
                     <td
