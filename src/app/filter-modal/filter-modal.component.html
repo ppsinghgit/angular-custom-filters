@@ -69,8 +69,9 @@
                 <div class="row">
                   <div
                     class="col-12 col-md-12 p-2 pl-4 mb-1 text-left sectionItem"
+                    (click)="changeSelection('view')"
                     [ngClass]="
-                      selectedSection === 'storeType'
+                      selectedSection === 'view'
                         ? 'font-weight-bold selectedSection'
                         : 'font-weight-normal'
                     "
@@ -80,6 +81,7 @@
                   <!-- enrollment year -->
                   <div
                     class="col-12 col-md-12 p-2 pl-4 mb-1 text-left sectionItem"
+                    (click)="changeSelection('enrollmentYear')"
                     [ngClass]="
                       selectedSection === 'enrollmentYear'
                         ? 'font-weight-bold selectedSection'
@@ -92,6 +94,7 @@
                   <!-- program name -->
                   <div
                     class="col-12 col-md-12 p-2 pl-4 mb-1 text-left sectionItem"
+                    (click)="changeSelection('programName')"
                     [ngClass]="
                       selectedSection === 'programName'
                         ? 'font-weight-bold selectedSection'
@@ -104,6 +107,7 @@
                   <!-- contract number -->
                   <div
                     class="col-12 col-md-12 p-2 pl-4 mb-1 text-left sectionItem"
+                    (click)="changeSelection('contractNumber')"
                     [ngClass]="
                       selectedSection === 'contractNumber'
                         ? 'font-weight-bold selectedSection'
@@ -116,6 +120,7 @@
                   <!-- distributor Name -->
                   <div
                     class="col-12 col-md-12 p-2 pl-4 mb-1 text-left sectionItem"
+                    (click)="changeSelection('distributorName')"
                     [ngClass]="
                       selectedSection === 'distributorName'
                         ? 'font-weight-bold selectedSection'
@@ -128,6 +133,7 @@
                   <!-- Enrolled By -->
                   <div
                     class="col-12 col-md-12 p-2 pl-4 mb-1 text-left sectionItem"
+                    (click)="changeSelection('enrolledBy')"
                     [ngClass]="
                       selectedSection === 'enrolledBy'
                         ? 'font-weight-bold selectedSection'
@@ -140,6 +146,7 @@
                   <!-- Enrollment Id -->
                   <div
                     class="col-12 col-md-12 p-2 pl-4 mb-1 text-left sectionItem"
+                    (click)="changeSelection('enrollmentId')"
                     [ngClass]="
                       selectedSection === 'enrollmentId'
                         ? 'font-weight-bold selectedSection'
@@ -152,6 +159,7 @@
                   <!-- Enrollment Status -->
                   <div
                     class="col-12 col-md-12 p-2 pl-4 mb-1 text-left sectionItem"
+                    (click)="changeSelection('enrollmentStatus')"
                     [ngClass]="
                       selectedSection === 'enrollmentStatus'
                         ? 'font-weight-bold selectedSection'
@@ -162,122 +170,127 @@
                   </div>
 
                   <!-- heading Payto-->
-                  <div class="col-md-12 p-1 pl-2 mb-1 text-left sectionHeading">
+                  <div
+                    class="col-md-12 p-1 pl-2 mb-1 text-left sectionHeading"
+                    (click)="expansion_payto = !expansion_payto"
+                  >
                     PayTo Information
                   </div>
-
-                  <!-- payto name -->
-                  <div
-                    class="col-md-12 p-2 pl-4 mb-1 text-left sectionItem"
-                    (click)="OnRegionClick()"
-                    [ngClass]="
-                      selectedSection === 'payToName'
-                        ? 'font-weight-bold selectedSection'
-                        : 'font-weight-normal'
-                    "
-                  >
-                    Name<span
-                      class="
-                        float-right
-                        pr-2
-                        custom-blue-color
-                        font-weight-bold
+                  <ng-container *ngIf="expansion_payto">
+                    <!-- payto name -->
+                    <div
+                      class="col-md-12 p-2 pl-4 mb-1 text-left sectionItem"
+                      (click)="changeSelection('payToName')"
+                      [ngClass]="
+                        selectedSection === 'payToName'
+                          ? 'font-weight-bold selectedSection'
+                          : 'font-weight-normal'
                       "
-                      *ngIf="filtersCount.Region > 0"
-                      >{{ filtersCount.PayToName }}</span
                     >
-                  </div>
+                      Name<span
+                        class="
+                          float-right
+                          pr-2
+                          custom-blue-color
+                          font-weight-bold
+                        "
+                        *ngIf="filtersCount.Region > 0"
+                        >{{ filtersCount.PayToName }}</span
+                      >
+                    </div>
 
-                  <!-- payto name -->
-                  <div
-                    class="col-md-12 p-2 pl-4 mb-1 text-left sectionItem"
-                    (click)="OnRegionClick()"
-                    [ngClass]="
-                      selectedSection === 'payToAddress'
-                        ? 'font-weight-bold selectedSection'
-                        : 'font-weight-normal'
-                    "
-                  >
-                    Address<span
-                      class="
-                        float-right
-                        pr-2
-                        custom-blue-color
-                        font-weight-bold
+                    <!-- payto name -->
+                    <div
+                      class="col-md-12 p-2 pl-4 mb-1 text-left sectionItem"
+                      (click)="changeSelection('payToAddress')"
+                      [ngClass]="
+                        selectedSection === 'payToAddress'
+                          ? 'font-weight-bold selectedSection'
+                          : 'font-weight-normal'
                       "
-                      *ngIf="filtersCount.Region > 0"
-                      >{{ filtersCount.PayToAddress }}</span
                     >
-                  </div>
+                      Address<span
+                        class="
+                          float-right
+                          pr-2
+                          custom-blue-color
+                          font-weight-bold
+                        "
+                        *ngIf="filtersCount.Region > 0"
+                        >{{ filtersCount.PayToAddress }}</span
+                      >
+                    </div>
 
-                  <!-- payto city -->
-                  <div
-                    class="col-md-12 p-2 pl-4 mb-1 text-left sectionItem"
-                    (click)="OnRegionClick()"
-                    [ngClass]="
-                      selectedSection === 'payToCity'
-                        ? 'font-weight-bold selectedSection'
-                        : 'font-weight-normal'
-                    "
-                  >
-                    City<span
-                      class="
-                        float-right
-                        pr-2
-                        custom-blue-color
-                        font-weight-bold
+                    <!-- payto city -->
+                    <div
+                      class="col-md-12 p-2 pl-4 mb-1 text-left sectionItem"
+                      (click)="changeSelection('payToCity')"
+                      [ngClass]="
+                        selectedSection === 'payToCity'
+                          ? 'font-weight-bold selectedSection'
+                          : 'font-weight-normal'
                       "
-                      *ngIf="filtersCount.Region > 0"
-                      >{{ filtersCount.PayToCity }}</span
                     >
-                  </div>
+                      City<span
+                        class="
+                          float-right
+                          pr-2
+                          custom-blue-color
+                          font-weight-bold
+                        "
+                        *ngIf="filtersCount.Region > 0"
+                        >{{ filtersCount.PayToCity }}</span
+                      >
+                    </div>
 
-                  <!-- payto State -->
-                  <div
-                    class="col-md-12 p-2 pl-4 mb-1 text-left sectionItem"
-                    (click)="OnRegionClick()"
-                    [ngClass]="
-                      selectedSection === 'payToState'
-                        ? 'font-weight-bold selectedSection'
-                        : 'font-weight-normal'
-                    "
-                  >
-                    State<span
-                      class="
-                        float-right
-                        pr-2
-                        custom-blue-color
-                        font-weight-bold
+                    <!-- payto State -->
+                    <div
+                      class="col-md-12 p-2 pl-4 mb-1 text-left sectionItem"
+                      (click)="changeSelection('payToState')"
+                      [ngClass]="
+                        selectedSection === 'payToState'
+                          ? 'font-weight-bold selectedSection'
+                          : 'font-weight-normal'
                       "
-                      *ngIf="filtersCount.Region > 0"
-                      >{{ filtersCount.PayToState }}</span
                     >
-                  </div>
+                      State<span
+                        class="
+                          float-right
+                          pr-2
+                          custom-blue-color
+                          font-weight-bold
+                        "
+                        *ngIf="filtersCount.Region > 0"
+                        >{{ filtersCount.PayToState }}</span
+                      >
+                    </div>
 
-                  <!-- payto zip -->
-                  <div
-                    class="col-md-12 p-2 pl-4 mb-1 text-left sectionItem"
-                    (click)="OnRegionClick()"
-                    [ngClass]="
-                      selectedSection === 'payToZip'
-                        ? 'font-weight-bold selectedSection'
-                        : 'font-weight-normal'
-                    "
-                  >
-                    Zip<span
-                      class="
-                        float-right
-                        pr-2
-                        custom-blue-color
-                        font-weight-bold
+                    <!-- payto zip -->
+                    <div
+                      class="col-md-12 p-2 pl-4 mb-1 text-left sectionItem"
+                      (click)="changeSelection('payToZip')"
+                      [ngClass]="
+                        selectedSection === 'payToZip'
+                          ? 'font-weight-bold selectedSection'
+                          : 'font-weight-normal'
                       "
-                      *ngIf="filtersCount.Region > 0"
-                      >{{ filtersCount.PayToZip }}</span
                     >
-                  </div>
-
+                      Zip<span
+                        class="
+                          float-right
+                          pr-2
+                          custom-blue-color
+                          font-weight-bold
+                        "
+                        *ngIf="filtersCount.Region > 0"
+                        >{{ filtersCount.PayToZip }}</span
+                      >
+                    </div>
+                  </ng-container>
                   <!-- heading location-->
-                  <div
+
+                  <!--
+                     <div
                     class="
                       col-md-12
                       p-1
@@ -291,9 +304,9 @@
                     Location
                   </div>
 
-                  <!-- region -->
                   <div
                     class="col-md-12 p-2 pl-4 mb-1 text-left sectionItem"
+                    (click)="changeSelection()"
                     (click)="OnRegionClick()"
                     [ngClass]="
                       selectedSection === 'region'
@@ -312,9 +325,9 @@
                       >{{ filtersCount.Region }}</span
                     >
                   </div>
-                  <!-- area -->
                   <div
                     class="col-md-12 p-2 pl-4 mb-1 text-left sectionItem"
+                    (click)="changeSelection()"
                     (click)="OnAreaClick()"
                     [ngClass]="
                       selectedSection === 'area'
@@ -335,9 +348,9 @@
                       {{ filtersCount.Area }}
                     </span>
                   </div>
-                  <!-- territory -->
                   <div
                     class="col-md-12 p-2 pl-4 mb-1 text-left sectionItem"
+                    (click)="changeSelection()"
                     (click)="OnTerritoryClick()"
                     [ngClass]="
                       selectedSection === 'territory'
@@ -357,7 +370,6 @@
                     >
                   </div>
 
-                  <!-- heading -->
                   <div
                     class="
                       col-md-12
@@ -374,6 +386,7 @@
 
                   <div
                     class="col-md-12 p-2 pl-4 mb-1 text-left sectionItem"
+                    (click)="changeSelection()"
                     [ngClass]="
                       selectedSection === 'enrolledBy'
                         ? 'font-weight-bold selectedSection'
@@ -384,6 +397,7 @@
                   </div>
                   <div
                     class="col-md-12 p-2 pl-4 mb-1 text-left sectionItem"
+                    (click)="changeSelection()"
                     [ngClass]="
                       selectedSection === 'distributor'
                         ? 'font-weight-bold selectedSection'
@@ -395,6 +409,7 @@
 
                   <div
                     class="col-md-12 p-2 pl-4 mb-1 text-left sectionItem"
+                    (click)="changeSelection()"
                     [ngClass]="
                       selectedSection === 'chain'
                         ? 'font-weight-bold selectedSection'
@@ -402,7 +417,7 @@
                     "
                   >
                     Chain
-                  </div>
+                  </div> -->
                 </div>
               </div>
               <div class="col-7 col-md-7">

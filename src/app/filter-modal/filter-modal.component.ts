@@ -45,24 +45,13 @@ export class FilterModalComponent implements OnInit {
     this.itemSearched = '';
   }
 
-  public OnRegionClick() {
-    this.selectedSectionType = sectionType.SalesHierarchy;
-    this.selectedSection = sections.Region;
-    this.setPrimaryData(this.filterModel.Regions);
-  }
+  selectField(type: string) {}
 
-  public OnAreaClick() {
-    this.selectedSectionType = sectionType.SalesHierarchy;
-    this.selectedSection = sections.Area;
-    this.setPrimaryData(this.filterModel.Areas);
+  changeSelection(val: string) {
+    this.selectedSection = val;
+    if (val == sections.view) {
+    }
   }
-
-  public OnTerritoryClick() {
-    this.selectedSectionType = sectionType.SalesHierarchy;
-    this.selectedSection = sections.Territory;
-    this.setPrimaryData(this.filterModel.Territories);
-  }
-
   private setPrimaryData(data: Dropdowndata[]) {
     this.primaryDdlData = data;
     this.afterSearch = this.primaryDdlData;
@@ -204,13 +193,13 @@ export class FilterModalComponent implements OnInit {
 
   public removeSingleFilter(type: string, value: string) {
     let item: Dropdowndata;
-    if (type == sections.Region) {
-      this.filterModel.Regions.find((x) => x.Value == value).Flag = false;
-    } else if (type == sections.Area) {
-      this.filterModel.Areas.find((x) => x.Value == value).Flag = false;
-    } else if (type == sections.Territory) {
-      this.filterModel.Territories.find((x) => x.Value == value).Flag = false;
-    }
+    // if (type == sections.Region) {
+    //   this.filterModel.Regions.find((x) => x.Value == value).Flag = false;
+    // } else if (type == sections.Area) {
+    //   this.filterModel.Areas.find((x) => x.Value == value).Flag = false;
+    // } else if (type == sections.Territory) {
+    //   this.filterModel.Territories.find((x) => x.Value == value).Flag = false;
+    // }
     let index = this.selectedFilters.findIndex(
       (x) => x.Type == type && x.Value == value
     );
@@ -231,9 +220,20 @@ export class FilterModalComponent implements OnInit {
 }
 
 enum sections {
-  Region = 'region',
-  Area = 'area',
-  Territory = 'territory',
+  view = 'view',
+  year = 'year',
+  enrollmentYear = 'enrollmentYear',
+  programName = 'programName',
+  contractNumber = 'contractNumber',
+  distrbutorName = 'distributorName',
+  enrolledBy = 'enrolledBy',
+  enrollmentId = 'enrollmentId',
+  enrollmentStatus = 'enrollmentStatus',
+  payToName = 'payToName',
+  payToAddress = 'payToAddress',
+  payToCity = 'payToCity',
+  payToState = 'payToState',
+  payToZip = 'payToZip',
 }
 
 enum sectionType {
