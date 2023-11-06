@@ -24,7 +24,7 @@ export class FilterModalComponent implements OnInit {
   public filtersCount: ShowSelectedFiltersCountBySection =
     new ShowSelectedFiltersCountBySection();
   public closeResult: string;
-  public addText: string;
+  public addText: string = '';
 
   @Input() public filterModel: FilterModel;
 
@@ -54,14 +54,12 @@ export class FilterModalComponent implements OnInit {
     }
   }
 
-  addFilter()
-  {
-    if()
+  addFilter() {
     let item = new SelectedFilterItem();
-    item.Value = this.afterSearch[i].Text;
+    item.Value = this.selectedSection + ' - ' + this.addText;
     item.Type = this.selectedSection;
-
     this.selectedFilters.push(item);
+    this.addText = '';
   }
 
   private setPrimaryData(data: Dropdowndata[]) {

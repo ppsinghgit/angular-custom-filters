@@ -426,9 +426,8 @@
                     <input
                       type="text"
                       class="mb-2 form-control"
-                      [value]="itemSearched"
+                      [(ngModel)]="addText"
                       placeholder="Search"
-                      (input)="onSearchChange($event.target.value)"
                       style="background-color:#f8f8f8; border:0; border-radius:0"
                     />
                   </div>
@@ -437,7 +436,6 @@
                       type="button"
                       class="btn btn-primary"
                       (click)="addFilter()"
-                      [(NgModel)]="addText"
                     >
                       ADD
                     </button>
