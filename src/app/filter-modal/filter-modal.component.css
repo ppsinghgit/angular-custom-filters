@@ -18,8 +18,7 @@ p {
   font-weight: 500;
 }
 .sectionItem {
-  background-color: #edf4f7;
-  color: #7d8182;
+  color: #3498db;
 }
 .selectedSection {
   background-color: white;
