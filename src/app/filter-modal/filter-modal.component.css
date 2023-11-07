@@ -14,14 +14,15 @@ p {
   border: 0;
 }
 .sectionHeading {
-  background-color: rgba(214, 233, 243, 0.961);
-  font-weight: 500;
+  color: #3498db;
+  font-weight: 500 !important;
 }
 .sectionItem {
   color: #3498db;
+  font-weight: 500 !important;
 }
 .selectedSection {
-  background-color: white;
+  background-color: lightgray;
 }
 
 div {

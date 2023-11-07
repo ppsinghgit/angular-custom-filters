@@ -60,6 +60,7 @@ export class FilterModalComponent implements OnInit {
     item.Type = this.selectedSection;
     this.selectedFilters.push(item);
     this.addText = '';
+    this.setFiltersCount();
   }
 
   private setPrimaryData(data: Dropdowndata[]) {
@@ -185,20 +186,7 @@ export class FilterModalComponent implements OnInit {
   }
 
   private setFiltersCount() {
-    this.filtersCount.Region = this.filterModel.Regions.filter(
-      (x) => x.Flag == true
-    ).length;
-    this.filtersCount.Area = this.filterModel.Areas.filter(
-      (x) => x.Flag == true
-    ).length;
-    this.filtersCount.Territory = this.filterModel.Territories.filter(
-      (x) => x.Flag == true
-    ).length;
-
-    this.filtersCount.TotalCount =
-      this.filtersCount.Region +
-      this.filtersCount.Area +
-      this.filtersCount.Territory;
+    this.filtersCount.TotalCount = this.selectedFilters?.length;
   }
 
   public removeSingleFilter(type: string, value: string) {
