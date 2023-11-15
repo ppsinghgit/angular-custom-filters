@@ -334,6 +334,8 @@
                         type="radio"
                         value="My Enrollments"
                         name="enrollmentView"
+                        (click)="selectedView = radiobutton"
+                        [checked]="selectedView === model.option"
                       />
                       My Enrollments
 
@@ -345,6 +347,7 @@
                       />
                       All Enrollments
                     </ng-container>
+                    {{ selectedView }}
                   </div>
 
                   <div class="col-md-12 p-4">

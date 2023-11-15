@@ -32,6 +32,7 @@ export class FilterModalComponent implements OnInit {
   public selectedSectionType: string = '';
 
   private enrollmentFilter = new EnrollmentFilter();
+  selectedView: string;
 
   constructor(public activeModal: NgbActiveModal) {
     this.selectedFilters = [];
