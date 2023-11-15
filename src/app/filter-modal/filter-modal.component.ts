@@ -14,8 +14,8 @@ import {
 })
 export class FilterModalComponent implements OnInit {
   public primaryDdlData: Dropdowndata[];
-  public afterSearch: Dropdowndata[];
-  public itemSearched: string;
+  // public afterSearch: Dropdowndata[];
+  // public itemSearched: string;
   public selectedSection: string = 'none';
   public showData: boolean = false;
   public primaryDataHeight: number;
@@ -42,8 +42,6 @@ export class FilterModalComponent implements OnInit {
   initiate() {
     this.filterModelInCaseCancel = JSON.parse(JSON.stringify(this.filterModel));
     this.primaryDdlData = [];
-    this.afterSearch = [];
-    this.itemSearched = '';
   }
 
   selectField(type: string) {}
@@ -65,70 +63,23 @@ export class FilterModalComponent implements OnInit {
 
   private setPrimaryData(data: Dropdowndata[]) {
     this.primaryDdlData = data;
-    this.afterSearch = this.primaryDdlData;
-    this.itemSearched = '';
     this.getPrimaryDataHeight();
   }
 
   public validate() {
-    this.afterSearch = this.primaryDdlData;
   }
 
   onSearchChange(searchValue: string): void {
-    this.itemSearched = searchValue;
-    this.afterSearch = this.primaryDdlData.filter((x) =>
-      x.Value.toLowerCase().includes(searchValue.toLowerCase())
-    );
     this.getPrimaryDataHeight();
   }
 
   public checkBoxEvent(selected: boolean, value: string) {
-    selected = selected ? false : true;
-    for (let i = 0; i < this.afterSearch.length; i++) {
-      if (this.afterSearch[i].Value == value) {
-        this.afterSearch[i].Flag = selected;
-        if (this.afterSearch[i].Flag) {
-          let item = new SelectedFilterItem();
-          item.Value = this.afterSearch[i].Text;
-          item.Type = this.selectedSection;
-
-          this.selectedFilters.push(item);
-        } else {
-          let index = this.selectedFilters.findIndex(
-            (x) =>
-              x.Value == this.afterSearch[i].Text &&
-              x.Type == this.selectedSection
-          );
-          if (index > -1) {
-            this.selectedFilters.splice(index, 1);
-          }
-        }
-      }
-    }
     this.setFiltersCount();
   }
 
   public radioButtonEvent(selected: boolean, value: string) {
     let item: any = null;
-    for (let i = 0; i < this.afterSearch.length; i++) {
-      if (this.afterSearch[i].Value == value) {
-        this.afterSearch[i].Flag = selected;
-        item = new SelectedFilterItem();
-        item.Value = this.afterSearch[i].Text;
-        item.Type = this.selectedSection;
-        this.selectedFilters.push(item);
-      } else {
-        this.afterSearch[i].Flag = false;
-        let index = this.selectedFilters.findIndex(
-          (x) =>
-            x.Value == this.afterSearch[i].Text &&
-            x.Type == this.selectedSection
-        );
-        if (index > -1) {
-          this.selectedFilters.splice(index, 1);
-        }
-      }
-    }
+  
     this.setFiltersCount();
   }
 
@@ -142,8 +93,6 @@ export class FilterModalComponent implements OnInit {
 
   public clearAll() {
     this.primaryDdlData = [];
-    this.afterSearch = [];
-    this.itemSearched = '';
     this.selectedSection = 'none';
     this.selectedFilters = [];
     this.filtersCount.Region = 0;
@@ -164,14 +113,6 @@ export class FilterModalComponent implements OnInit {
     let scrollBar = '';
     let height = '';
 
-    if (this.afterSearch) {
-      if (this.afterSearch.length > 10) {
-        this.primaryDataHeight = 300;
-      } else {
-        this.primaryDataHeight = this.afterSearch.length * 35;
-      }
-    }
-
     if (this.primaryDataHeight < 300) {
       scrollBar = 'hidden';
       height = 'auto';
@@ -191,13 +132,6 @@ export class FilterModalComponent implements OnInit {
 
   public removeSingleFilter(type: string, value: string) {
     let item: Dropdowndata;
-    // if (type == sections.Region) {
-    //   this.filterModel.Regions.find((x) => x.Value == value).Flag = false;
-    // } else if (type == sections.Area) {
-    //   this.filterModel.Areas.find((x) => x.Value == value).Flag = false;
-    // } else if (type == sections.Territory) {
-    //   this.filterModel.Territories.find((x) => x.Value == value).Flag = false;
-    // }
     let index = this.selectedFilters.findIndex(
       (x) => x.Type == type && x.Value == value
     );

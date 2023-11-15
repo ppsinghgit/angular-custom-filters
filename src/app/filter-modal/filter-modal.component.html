@@ -29,6 +29,7 @@
                 </button>
               </div>
             </div>
+            afterSearch
 
             <div class="row m-2">
               <div
@@ -288,137 +289,6 @@
                       >
                     </div>
                   </div>
-                  <!-- heading location-->
-
-                  <!--
-                     <div
-                    class="
-                      col-md-12
-                      p-1
-                      pl-2
-                      mb-1
-                      text-left
-                      sectionHeading
-                      text-uppercase
-                    "
-                  >
-                    Location
-                  </div>
-
-                  <div
-                    class="col-md-12 p-2 pl-4 mb-1 text-left sectionItem"
-                    (click)="changeSelection()"
-                    (click)="OnRegionClick()"
-                    [ngClass]="
-                      selectedSection === 'region'
-                        ? 'font-weight-bold selectedSection'
-                        : 'font-weight-normal'
-                    "
-                  >
-                    Region<span
-                      class="
-                        float-right
-                        pr-2
-                        custom-blue-color
-                        font-weight-bold
-                      "
-                      *ngIf="filtersCount.Region > 0"
-                      >{{ filtersCount.Region }}</span
-                    >
-                  </div>
-                  <div
-                    class="col-md-12 p-2 pl-4 mb-1 text-left sectionItem"
-                    (click)="changeSelection()"
-                    (click)="OnAreaClick()"
-                    [ngClass]="
-                      selectedSection === 'area'
-                        ? 'font-weight-bold selectedSection'
-                        : 'font-weight-normal'
-                    "
-                  >
-                    Area
-                    <span
-                      class="
-                        float-right
-                        pr-2
-                        custom-blue-color
-                        font-weight-bold
-                      "
-                      *ngIf="filtersCount.Area > 0"
-                    >
-                      {{ filtersCount.Area }}
-                    </span>
-                  </div>
-                  <div
-                    class="col-md-12 p-2 pl-4 mb-1 text-left sectionItem"
-                    (click)="changeSelection()"
-                    (click)="OnTerritoryClick()"
-                    [ngClass]="
-                      selectedSection === 'territory'
-                        ? 'font-weight-bold selectedSection'
-                        : 'font-weight-normal'
-                    "
-                  >
-                    Territory<span
-                      class="
-                        float-right
-                        pr-2
-                        custom-blue-color
-                        font-weight-bold
-                      "
-                      *ngIf="filtersCount.Territory > 0"
-                      >{{ filtersCount.Territory }}</span
-                    >
-                  </div>
-
-                  <div
-                    class="
-                      col-md-12
-                      p-1
-                      pl-2
-                      mb-1
-                      text-left
-                      sectionHeading
-                      text-uppercase
-                    "
-                  >
-                    Other HIERARCHY
-                  </div>
-
-                  <div
-                    class="col-md-12 p-2 pl-4 mb-1 text-left sectionItem"
-                    (click)="changeSelection()"
-                    [ngClass]="
-                      selectedSection === 'enrolledBy'
-                        ? 'font-weight-bold selectedSection'
-                        : 'font-weight-normal'
-                    "
-                  >
-                    Enrolled By
-                  </div>
-                  <div
-                    class="col-md-12 p-2 pl-4 mb-1 text-left sectionItem"
-                    (click)="changeSelection()"
-                    [ngClass]="
-                      selectedSection === 'distributor'
-                        ? 'font-weight-bold selectedSection'
-                        : 'font-weight-normal'
-                    "
-                  >
-                    Distributor
-                  </div>
-
-                  <div
-                    class="col-md-12 p-2 pl-4 mb-1 text-left sectionItem"
-                    (click)="changeSelection()"
-                    [ngClass]="
-                      selectedSection === 'chain'
-                        ? 'font-weight-bold selectedSection'
-                        : 'font-weight-normal'
-                    "
-                  >
-                    Chain
-                  </div> -->
                 </div>
               </div>
               <div class="col-7 col-md-7">
@@ -454,53 +324,10 @@
 
                     <div class="row">
                       <div class="col-md-12 pr-4">
-                        <div class="row" [ngStyle]="getPrimaryDataHeight()">
-                          <ng-container
-                            *ngIf="selectedSectionType != 'SalesHierarchy'"
-                          >
-                            <div
-                              class="col-md-12 mb-1 section-array-div"
-                              *ngFor="let item of afterSearch"
-                            >
-                              <div
-                                (click)="checkBoxEvent(item.Flag, item.Value)"
-                                [ngClass]="
-                                  item.Flag
-                                    ? 'font-weight-bold selectedSection p-1 pl-2'
-                                    : 'font-weight-normal p-1 pl-2'
-                                "
-                              >
-                                <input type="checkbox" [checked]="item.Flag" />
-                                {{ item.Text }}
-                              </div>
-                            </div>
-                          </ng-container>
-
-                          <ng-container
-                            *ngIf="selectedSectionType == 'SalesHierarchy'"
-                          >
-                            <div
-                              class="col-md-12 mb-1 section-array-div"
-                              *ngFor="let item of afterSearch"
-                            >
-                              <div
-                                (click)="radioButtonEvent(true, item.Value)"
-                                [ngClass]="
-                                  item.Flag
-                                    ? 'font-weight-bold selectedSection p-1 pl-2'
-                                    : 'font-weight-normal p-1 pl-2'
-                                "
-                              >
-                                <input
-                                  type="radio"
-                                  [value]="item.Flag"
-                                  [checked]="item.Flag"
-                                />
-                                {{ item.Text }}
-                              </div>
-                            </div>
-                          </ng-container>
-                        </div>
+                        <div
+                          class="row"
+                          [ngStyle]="getPrimaryDataHeight()"
+                        ></div>
                       </div>
                     </div>
                   </div>
@@ -534,12 +361,3 @@
     </div>
   </div>
 </div>
-<!-- <div class="modal-footer">
-  <button
-    type="button"
-    class="btn btn-outline-dark"
-    (click)="modalOk()"
-  >
-    Ok
-  </button>
-</div> -->
