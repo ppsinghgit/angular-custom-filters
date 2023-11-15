@@ -292,25 +292,39 @@
               </div>
               <div class="col-7 col-md-7">
                 <div class="row mt-3">
-                  <div class="col-8 mt-0 mb-0 mr-0 pt-0 pb-0 pr-0">
-                    <input
-                      type="text"
-                      class="mb-2 form-control"
-                      [(ngModel)]="addText"
-                      placeholder="Search Term"
-                      style="background-color:#f8f8f8; border:0; border-radius:0"
-                    />
-                  </div>
-                  <div class="col-4 mt-0 mb-0 mr-0 pt-0 pb-0 pr-0">
-                    <button
-                      type="button"
-                      class="btn btn-primary"
-                      (click)="addFilter()"
-                      style="margin-top:3px;"
-                    >
-                      ADD
-                    </button>
-                  </div>
+                  <ng-container
+                    *ngIf="
+                      selectedSection == 'contractNumber' ||
+                      selectedSection == 'distributorName' ||
+                      selectedSection == 'enrolledBy' ||
+                      selectedSection == 'enrollmentId' ||
+                      selectedSection == 'payToName' ||
+                      selectedSection == 'payToAddress' ||
+                      selectedSection == 'payToCity' ||
+                      selectedSection == 'payToZip'
+                    "
+                  >
+                    <div class="col-8 mt-0 mb-0 mr-0 pt-0 pb-0 pr-0">
+                      <input
+                        type="text"
+                        class="mb-2 form-control"
+                        [(ngModel)]="addText"
+                        placeholder="Search Term"
+                        style="background-color:#f8f8f8; border:0; border-radius:0"
+                      />
+                    </div>
+                    <div class="col-4 mt-0 mb-0 mr-0 pt-0 pb-0 pr-0">
+                      <button
+                        type="button"
+                        class="btn btn-primary"
+                        (click)="addFilter()"
+                        style="margin-top:3px;"
+                      >
+                        ADD
+                      </button>
+                    </div>
+                  </ng-container>
+
                   <div class="col-md-12 p-4">
                     <div class="row">
                       <div class="col-1"></div>
