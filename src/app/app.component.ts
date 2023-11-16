@@ -328,18 +328,7 @@ export class AppComponent {
       { Value: 'Ward 4', Text: 'Ward 4', flag: false },
     ];
     this.filterModel = new FilterModel();
-    this.filterModel.Regions = this.normaliseDropdownData(
-      _region,
-      sectionType.SalesHierarchy
-    );
-    this.filterModel.Areas = this.normaliseDropdownData(
-      _area,
-      sectionType.SalesHierarchy
-    );
-    this.filterModel.Territories = this.normaliseDropdownData(
-      _territories,
-      sectionType.SalesHierarchy
-    );
+   
     console.log('filetr model ------------');
     console.log(JSON.stringify(this.filterModel));
   }
